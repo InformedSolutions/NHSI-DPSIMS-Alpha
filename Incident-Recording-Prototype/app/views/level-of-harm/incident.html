@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Level of harm
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/mds1">Back</a>
+            <form class="form" action="/mds3" method="post">
+                <div class="form-group">
+                    <fieldset>
+
+                        <legend>
+                            <span class="form-label-bold">Did the patient die?</span>
+                        </legend>
+
+                        <div class="multiple-choice">
+                            <input id="death-yes" type="radio" name="death" value="Yes">
+                            <label for="death-yes">Yes</label>
+                        </div>
+                        <p class="form-block">or</p>
+                        <div class="multiple-choice" data-target="level-of-harm">
+                            <input id="death-no" type="radio" name="death" value="No">
+                            <label for="death-no">No</label>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+                <div class="panel panel-border-narrow js-hidden" id="level-of-harm">
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>
+                                <span class="form-label-bold">What was the level of harm?</span>
+                            </legend>
+
+                            <div class="multiple-choice">
+                                <input id="level-of-harm-1" type="radio" name="level-of-harm" value="No harm">
+                                <label for="level-of-harm-1">No harm</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="level-of-harm-2" type="radio" name="level-of-harm" value="Low">
+                                <label for="level-of-harm-2">Low</label>
+                            </div>
+                            <div class="multiple-choice">
+                                <input id="level-of-harm-3" type="radio" name="level-of-harm" value="Moderate">
+                                <label for="level-of-harm-3">Moderate</label>
+                            </div>
+                            <p class="form-block">or</p>
+                            <div class="multiple-choice">
+                                <input id="level-of-harm-4" type="radio" name="level-of-harm" value="Severe">
+                                <label for="level-of-harm-4">Severe</label>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

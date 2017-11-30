@@ -1,62 +1,36 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  GOV.UK prototype kit
+Home | Record a patient safety incident
 {% endblock %}
 
 {% block content %}
 
 <main id="content" role="main">
-  <div class="grid-row">
-    <div class="column-two-thirds">
+	<div class="grid-row">
+		<div class="column-two-thirds">
+			<h1 class="heading-xlarge">
+				NHSI - DPSIMS - Alpha
+			</h1>
 
-      <h1 class="heading-xlarge">
-        The GOV.UK prototype kit
-        <span class="heading-secondary">{{releaseVersion}}</span>
-      </h1>{{releaseVersion | log }}
-      <p>
-        This kit lets you rapidly create HTML prototypes of GOV.UK services.
-      </p>
+			<p>Start page for launching prototypes for user testing as part of the NHSI DPSIMS project.</p>
+			<p>As the alpha phase progresses, further iterations will be added to this page depending on the current priorities of the team</p>
+			<p>Tagged releases can be found <a href="https://github.com/InformedSolutions/NHSI-DPSIMS-Alpha" target="_blank">here</a>. Speak to the team if you require access.</p>
 
-      <p>
-        It contains all you need to prototype anything from simple static pages to complex, data-driven transactions.
-      </p>
-
-      <h2 class="heading-medium">About this page</h2>
-
-      <p>We recommend you add links to your prototype to this page, rather than delete it.
-        You'll find this page in the kit at '/app/views/index.html'.</p>
-      <p>You can change the service name by editing the file '/app/config.js'.</p>
-
-			<h2 class="heading-medium">Examples and documentation</h2>
-
+			<h2 class="heading-medium">Epics</h2>
 			<ul class="list list-bullet">
-				<li><a href="/docs/tutorials-and-examples">Example pages and documentation</a></li>
-				<li><a href="https://github.com/alphagov/govuk_prototype_kit">GitHub</a></li>
+				<li>Online Incident Recording</li>
 			</ul>
 
-      <h2 class="heading-medium">Other resources</h2>
+			<h2 class="heading-medium">Links to prototypes</h2>
 
-			<ul class="list list-bullet">
-				<li>
-					<a href="https://govuk-elements.herokuapp.com/snippets/">
-						Guide to GOV.UK Elements
-					</a>
-				</li>
-				<li>
-					<a href="https://www.gov.uk/service-manual">
-						Service design manual
-					</a>
-				</li>
-				<li>
-					<a href="https://www.gov.uk/design-principles">
-						Government Digital Service Design Principles
-					</a>
-				</li>
-			</ul>
-
-    </div>
-  </div>
+			<form action="/mds1" method="post" class="form">
+				<div class="form-group">
+					<input type="submit" class="button" name="button" value="Record Incident - MDS">
+				</div>
+			</form>
+		</div>
+	</div>
 </main>
 
 {% endblock %}

@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Details
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/mds2">Back</a>
+
+            <form class="form" action="/check-your-answers" method="post">
+                <div class="form-group">
+                    <label class="form-label-bold" for="description">
+                        Provide a narrative description of the risk/issue/concern:
+                    </label>
+                    <textarea class="form-control form-control-3-4" name="description" id="description" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label-bold" for="location">
+                        Where did it happen?
+                    </label>
+                    <textarea class="form-control form-control-3-4" name="location" id="location" rows="5"></textarea>
+                </div>
+                <fieldset class="form-group">
+                    <legend>
+                        <span class="form-label-bold">
+                          When did it happen?
+                        </span>
+                        <p class="body-text">
+                            For example, 20 11 2017
+                        </p>
+                    </legend>
+
+                    <div class="form-date">
+
+                        <div class="form-group form-group-day">
+                            <label for="incident-day">Day</label>
+                            <input class="form-control" id="incident-day" name="incident-day" type="number" pattern="[0-9]*" min="0" max="31">
+                        </div>
+
+                        <div class="form-group form-group-month">
+                            <label for="incident-month">Month</label>
+                            <input class="form-control" id="incident-month" name="incident-month" type="number" pattern="[0-9]*" min="0" max="12">
+                        </div>
+
+                        <div class="form-group form-group-year">
+                            <label for="incident-year">Year</label>
+                            <input class="form-control" id="incident-year" name="incident-year" type="number" pattern="[0-9]*" min="0" max="2014">
+                        </div>
+
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <label class="form-label-bold" for="patient">
+                        To whom did it happen?
+                    </label>
+                    <textarea class="form-control form-control-3-4" name="patient" id="patient" rows="5"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="patient-age" class="form-label-bold">What was the age of the patient?</label>
+                    <input class="form-control" id="patient-age" name="patient-age" type="number" pattern="[0-9]*" min="0">
+                </div>
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

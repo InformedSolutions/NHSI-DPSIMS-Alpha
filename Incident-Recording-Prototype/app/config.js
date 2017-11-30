@@ -4,10 +4,10 @@
 
 module.exports = {
   // Service name used in header. Eg: 'Renew your passport'
-  serviceName: 'PSIMS Online Incident Recording Service',
+  serviceName: 'Record a patient safety incident',
 
   // Default port that prototype runs on
-  port: '3000',
+  port: '3001',
 
   // Enable or disable password protection on production
   useAuth: 'true',
