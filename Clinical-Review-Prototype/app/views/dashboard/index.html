@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Dashboard | Clinical Review
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-xlarge">
+                Incidents for review
+                <span class="heading-secondary">w/c 4th December 2017</span>
+            </h1>
+        </div>
+        <div class="column-full">
+
+            <table>
+                <thead>
+                <tr>
+                    <th>#</th>  <th>Description</th> <th>Date Reported</th> <th>Date Occurred</th> <th>Organisation</th>  <th>Category</th> <th>Actions</th> <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="incident_id"><a href="#" data-target="incident-190" onclick="javascript:toggleIncidentPanel(this);">190</a></td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vestibulum efficitur gravida.
+                    Donec sollicitudin tincidunt orci, ac hendrerit sem iaculis sodales. [..]</td>
+                    <td>24th November 2017</td> <td>23rd November 2017</td> <td>TH164</td> <td>Suicide/self harm</td> <td>-</td>
+                    <td><a href="/incident/review">Review</a> </td>
+                </tr>
+
+                <tr class="js-hidden" id="incident-190">
+                    <td colspan="8">
+                        <div class="column-full">
+                            <h4 class="heading-small">Full description</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vestibulum efficitur gravida.
+                                Donec sollicitudin tincidunt orci, ac hendrerit sem iaculis sodales. Phasellus sed lorem ac purus lobortis tempus. Fusce tempus fringilla sapien ac vulputate.
+                                Sed lobortis vulputate tristique. Aenean in cursus mauris. Nulla neque purus, aliquam ut vulputate sed, fringilla vitae turpis. Pellentesque ac arcu eu erat malesuada pretium.</p>
+
+                            <h4 class="heading-small">Field 2</h4>
+                            <p>Lorem ipsum dolor sit amet</p>
+
+                            <h4 class="heading-small">Field 3</h4>
+                            <p>Sed lobortis vulputate tristique.</p>
+
+                            <h4 class="heading-small">Field 4</h4>
+                            <p>Donec sollicitudin tincidunt orci, ac hendrerit sem iaculis sodales. Phasellus sed lorem ac purus lobortis tempus.</p>
+
+                            <h4 class="heading-small">Field 5</h4>
+                            <p>Fusce tempus fringilla sapien ac vulputate</p>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><a href="/view-incident?id=189">189</a></td> <td>TBC</td> <td>24th November 2017</td> <td>22nd November 2017</td> <td>TH90</td> <td>Treatment / procedure - delay / failure</td> <td>-</td>
+                    <td><a href="#">Review</a> </td>
+                </tr>
+
+                <tr>
+                    <td><a href="/view-incident?id=188">188</a></td> <td>TBC</td> <td>24th November 2017</td> <td>23rd November 2017</td> <td>TR80</td> <td>Eclampsia</td> <td>-</td>
+                    <td><a href="#">Review</a> </td>
+                </tr>
+
+                <tr>
+                    <td><a href="/view-incident?id=187">187</a></td> <td>TBC</td> <td>23rd November 2017</td> <td>21st November 2017</td> <td>RI200</td> <td>Wrong device / equipment used</td> <td>-</td>
+                    <td><a href="#">Review</a> </td>
+                </tr>
+
+                <tr>
+                    <td><a href="/view-incident?id=186">186</a></td> <td>TBC</td> <td>23rd November 2017</td> <td>20th November 2017</td> <td>KL78</td> <td>Wrong device / equipment used</td> <td>-</td>
+                    <td><a href="#">Review</a> </td>
+                </tr>
+
+                </tbody>
+            </table>
+            <div class="pagination">
+                Showing 5 of 24 incidents
+                <ul class="list">
+                    <li>1</li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">Next</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+
