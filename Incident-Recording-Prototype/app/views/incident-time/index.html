@@ -9,25 +9,14 @@ Details
 <main id="content" role="main">
     <div class="grid-row">
         <div class="column-two-thirds">
-            <a class="link-back" href="/level-of-harm">Back</a>
+            <a class="link-back" href="/incident-location">Back</a>
 
-            <form class="form" action="/check-your-answers" method="post">
-                <div class="form-group">
-                    <label class="form-label-bold" for="description">
-                        Provide a narrative description of the risk/issue/concern:
-                    </label>
-                    <textarea class="form-control form-control-3-4" name="description" id="description" rows="5"></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label-bold" for="location">
-                        Where did it happen?
-                    </label>
-                    <textarea class="form-control form-control-3-4" name="location" id="location" rows="5"></textarea>
-                </div>
+            <form class="form" action="/incident-patient" method="post">
+
                 <fieldset class="form-group">
                     <legend>
                         <span class="form-label-bold">
-                          When did it happen?
+                          On what day did it happen?
                         </span>
                         <p class="body-text">
                             For example, 20 11 2017
@@ -53,17 +42,32 @@ Details
 
                     </div>
                 </fieldset>
-                <div class="form-group">
-                    <label class="form-label-bold" for="patient">
-                        To whom did it happen?
-                    </label>
-                    <textarea class="form-control form-control-3-4" name="patient" id="patient" rows="5"></textarea>
-                </div>
 
-                <div class="form-group">
-                    <label for="patient-age" class="form-label-bold">What was the age of the patient?</label>
-                    <input class="form-control" id="patient-age" name="patient-age" type="number" pattern="[0-9]*" min="0">
-                </div>
+                <fieldset class="form-group">
+                    <legend>
+                        <span class="form-label-bold">
+                          At what time did it happen?
+                        </span>
+                        <p class="body-text">
+                            For example, 21 30
+                        </p>
+                    </legend>
+
+                    <div class="form-date">
+
+                        <div class="form-group form-group-day">
+                            <label for="incident-hour">Hour</label>
+                            <input class="form-control" id="incident-hour" name="incident-hour" type="number" pattern="[0-9]*" min="0" max="23">
+                        </div>
+
+                        <div class="form-group form-group-month">
+                            <label for="incident-minute">Minute</label>
+                            <input class="form-control" id="incident-minute" name="incident-minute" type="number" pattern="[0-9]*" min="0" max="59">
+                        </div>
+
+
+                    </div>
+                </fieldset>
 
                 <div class="form-group">
                     <input class="button" type="submit" value="Continue">

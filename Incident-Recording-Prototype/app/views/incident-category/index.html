@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Details
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/level-of-harm">Back</a>
+
+            <form class="form" action="/incident-subcategory" method="post">
+
+                <div class="form-group">
+                    <label class="form-label-bold" for="incident-type">Please categorise the patient safety incident from the following choices:</label>
+                    <select class="form-control" id="incident-type" name="incident-type">
+                        <option>Access, admission, transfer, discharge (including missing patient)</option>
+                        <option>Clinical assessment (including diagnosis, scans, tests, assessments)</option>
+                        <option>Consent, communication, confidentiality</option>
+                        <option>Disruptive, aggressive behaviour (includes patient to patient)</option>
+                        <option>Documentation (including electronic & paper records, identification and charts)</option>
+                        <option>Implementation of care and ongoing monitoring / review</option>
+                        <option>Infection Control Incident</option>
+                        <option>Infrastructure (including staffing, facilities, environment)</option>
+                        <option>Medical device / equipment</option>
+                        <option>Medication</option>
+                        <option>Patient abuse (by staff / third party)</option>
+                        <option>Patient accident</option>
+                        <option>Self-harming behaviour</option>
+                        <option>Treatment, procedure</option>
+                        <option>Maternal fetal neonatal incidents CNST triggers</option>
+                        <option>Pressure ulcer</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}
