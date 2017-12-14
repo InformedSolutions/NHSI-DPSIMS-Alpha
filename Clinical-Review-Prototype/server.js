@@ -19,6 +19,8 @@ var packageJson = require('./package.json')
 var releaseVersion = packageJson.version
 var username = process.env.USERNAME
 var password = process.env.PASSWORD
+console.log('u: '+ username + ' p: '+password)
+var other = process.env.OTHER
 var env = process.env.NODE_ENV || 'development'
 var useAuth = process.env.USE_AUTH || config.useAuth
 var useAutoStoreData = process.env.USE_AUTO_STORE_DATA || config.useAutoStoreData
@@ -113,6 +115,8 @@ app.locals.cookieText = config.cookieText
 app.locals.promoMode = promoMode
 app.locals.releaseVersion = 'v' + releaseVersion
 app.locals.serviceName = config.serviceName
+app.locals.themes = config.themes
+app.locals.subthemes = config.subthemes
 
 // Support session data
 app.use(session({
