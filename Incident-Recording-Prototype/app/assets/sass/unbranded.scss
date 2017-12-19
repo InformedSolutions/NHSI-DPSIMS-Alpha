@@ -28,3 +28,35 @@ $toolkit-font-stack: $helvetica-regular;
     background: $white;
   }
 }
+
+#global-header {
+  background-color: #0072C6;
+}
+
+#global-header .header-wrapper {
+  background-color: #0072C6;
+}
+
+#global-header #logo {
+  float: left;
+  overflow: visible;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 1;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  border-bottom: 1px solid transparent;
+  background: url(../images/nhs-logo.png?0.22.3) no-repeat;
+  background-size: 70px 32px;
+  background-position: 0 0; }
+
+/* Global header bar */
+#global-header-bar {
+  height: 10px;
+  background-color: #005ea5; }
+
+.phase-banner{
+  max-width: 960px;
+  margin: auto;
+}

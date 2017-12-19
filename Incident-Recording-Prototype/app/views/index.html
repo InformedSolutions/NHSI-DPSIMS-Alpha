@@ -1,36 +1,36 @@
-{% extends "layout.html" %}
+{% extends "layout_unbranded.html" %}
 
 {% block page_title %}
-Home | Record a patient safety incident
+DPSIMS Alpha
 {% endblock %}
 
 {% block content %}
 
 <main id="content" role="main">
-	<div class="grid-row">
-		<div class="column-two-thirds">
-			<h1 class="heading-xlarge">
-				NHSI - DPSIMS - Alpha
-			</h1>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-xlarge">
+                NHSI - DPSIMS - Alpha
+            </h1>
 
-			<p>Start page for launching prototypes for user testing as part of the NHSI DPSIMS project.</p>
-			<p>As the alpha phase progresses, further iterations will be added to this page depending on the current priorities of the team</p>
-			<p>Tagged releases can be found <a href="https://github.com/InformedSolutions/NHSI-DPSIMS-Alpha" target="_blank">here</a>. Speak to the team if you require access.</p>
+            <p>Start page for launching prototypes for user testing as part of the NHSI DPSIMS project.</p>
+            <p>As the alpha phase progresses, further iterations will be added to this page depending on the current priorities of the team</p>
+            <p>Tagged releases can be found <a href="https://github.com/InformedSolutions/NHSI-DPSIMS-Alpha" target="_blank">here</a>. Speak to the team if you require access.</p>
 
-			<h2 class="heading-medium">Epics</h2>
-			<ul class="list list-bullet">
-				<li>Online Incident Recording</li>
-			</ul>
+            <h2 class="heading-medium">Epics</h2>
+            <ul class="list list-bullet">
+                <li>Online Incident Recording</li>
+            </ul>
 
-			<h2 class="heading-medium">Links to prototypes</h2>
+            <h2 class="heading-medium">Links to prototypes</h2>
 
-			<form action="/record-type" method="post" class="form">
-				<div class="form-group">
-					<input type="submit" class="button" name="button" value="Record a patient safety incident">
-				</div>
-			</form>
-		</div>
-	</div>
+            <form action="/record-type" method="post" class="form">
+                <div class="form-group">
+                    <input type="submit" class="button" name="button" value="Record a patient safety incident">
+                </div>
+            </form>
+        </div>
+    </div>
 </main>
 
 {% endblock %}
