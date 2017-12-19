@@ -54,13 +54,12 @@
             <div class="header-global">
                 <div class="header-logo">
                     <a href="{{ homepage_url|default('https://improvement.nhs.uk/') }}" title="{{ logo_link_title|default('Go to the NHS Improvement homepage') }}" id="logo" class="content">
-                        <img src="{{ asset_path }}images/nhs-logo.png?0.22.3" width="70" height="32" alt="">{{ global_header_text|default('Improvement') }}</a>
+                        <img src="{{ asset_path }}images/nhs-logo.png?0.22.3" width="113" height="50" alt=""></a>
                 </div>
                 {% block inside_header %}{% endblock %}
             </div>
             <div class="header-proposition">
                 <div class="content">
-                    <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
                     <nav id="proposition-menu">
                         <a href="/" id="proposition-name">
                             {# Set serviceName in config.js. Use a block to override on a page. #}
