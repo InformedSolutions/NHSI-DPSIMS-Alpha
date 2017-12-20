@@ -1,7 +1,7 @@
 {% extends "layout_unbranded.html" %}
 
 {% block page_title %}
-Record Type
+Incident Recorder
 {% endblock %}
 
 {% block content %}
@@ -10,25 +10,23 @@ Record Type
     <div class="grid-row">
         <div class="column-two-thirds">
             <a class="link-back" href="/index">Back</a>
-            <form class="form" action="/selected-type" method="post">
+            <form class="form" action="/record-type" method="post">
                 <div class="form-group">
                     <fieldset>
                         <legend>
-                            <span class="form-label-bold">Do you want to record and share:</span>
+                            <h1 class="heading-medium">
+                                Are you recording this incident as:
+                            </h1>
                         </legend>
 
                         <div class="multiple-choice">
-                            <input id="record-type-1" type="radio" name="record-type" value="PSI">
-                            <label for="record-type-1">A patient safety incident</label>
-                        </div>
-                        <div class="multiple-choice">
-                            <input id="record-type-2" type="radio" name="record-type" value="Outcome">
-                            <label for="record-type-2">A poor outcome where a patient safety incident might have contributed</label>
+                            <input id="healthcare-professional" type="radio" name="incident-recorder" value="healthcare professional">
+                            <label for="healthcare-professional">A healthcare professional</label>
                         </div>
                         <p class="form-block">or</p>
                         <div class="multiple-choice">
-                            <input id="record-type-3" type="radio" name="record-type" value="Risk">
-                            <label for="record-type-3">A risk</label>
+                            <input id="member-of-public" type="radio" name="incident-recorder" value="member of public">
+                            <label for="member-of-public">A member of the public</label>
                         </div>
 
                     </fieldset>

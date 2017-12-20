@@ -14,6 +14,7 @@ var browserSync = require('browser-sync')
 var config = require('./app/config.js')
 var utils = require('./lib/utils.js')
 var packageJson = require('./package.json')
+var ejs = require('ejs');
 
 // Grab environment variables specified in Procfile or as Heroku config vars
 var releaseVersion = packageJson.version
@@ -71,7 +72,7 @@ var nunjucksAppEnv = nunjucks.configure(appViews, {
 utils.addNunjucksFilters(nunjucksAppEnv)
 
 // Set views engine
-app.set('view engine', 'html')
+app.set('view engine', 'ejs')
 
 // Middleware to serve static assets
 app.use('/public', express.static(path.join(__dirname, '/public')))

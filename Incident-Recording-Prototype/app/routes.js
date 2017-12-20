@@ -1,5 +1,6 @@
 var express = require('express')
 var router = express.Router()
+var taxonomy = require ('./taxonomy.js');
 
 // Route index page
 router.get('/', function (req, res) {
@@ -141,6 +142,13 @@ router.get('/incident-subcategory', function (req, res) {
     else if (incidentCategory == "Other") {
         res.redirect('/incident-subcategory/other');
     }
+});
+
+
+router.post('/service-area', function (req, res) {
+    res.render('service-area/index', {
+        "serviceAreas": taxonomy.serviceAreas
+    })
 });
 
 
