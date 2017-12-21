@@ -9,7 +9,7 @@ Details
 <main id="content" role="main">
     <div class="grid-row">
         <div class="column-two-thirds">
-            <a class="link-back" href="/level-of-harm">Back</a>
+            <a class="link-back" href="/description">Back</a>
 
             <form class="form" action="/subcategory" method="post">
                 <div class="form-group">
@@ -17,7 +17,7 @@ Details
                     <select class="form-control" id="category" name="category">
 
                         {% for category in categories %}
-                            {% if (((category.type.indexOf(recordType)) !== -1) or (journey === "B")) %}
+                            {% if (((category.type.indexOf(recordType)) !== -1) or (journey === "B") or (recordType === "incident")) %}
                                 <option>{{ category.name }}</option>
                             {% endif %}
                         {% endfor %}

@@ -9,16 +9,17 @@ Details
 <main id="content" role="main">
     <div class="grid-row">
         <div class="column-two-thirds">
-            <a class="link-back" href="/service-area">Back</a>
+            <a class="link-back" href="/record-type">Back</a>
 
-            <form class="form" action="/incident-time" method="post">
+            <form class="form" action="/category" method="post">
 
                 <div class="form-group">
-                    <label class="form-label-bold" for="location">
-                        Where did it happen?
+                    <label class="form-label-bold" for="description">
+                        Provide a narrative description of the {{ recordType }}:
                     </label>
-                    <textarea class="form-control form-control-3-4" name="location" id="location" rows="5"></textarea>
+                    <textarea class="form-control form-control-3-4" name="description" id="description" rows="5"></textarea>
                 </div>
+
 
                 <div class="form-group">
                     <input class="button" type="submit" value="Continue">

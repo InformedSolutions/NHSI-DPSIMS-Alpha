@@ -29,20 +29,32 @@ router.post('/selected-recorder', function (req, res) {
 });
 
 router.post('/selected-type', function (req, res) {
-    var recordType = req.body["record-type"];
-    req.session.recordType = recordType;
+    req.session.recordType = req.body["record-type"];
 
-    if (recordType == 'risk') {
+    if (req.session.recordType == 'risk') {
         res.redirect('/risk-details');
+    } else {
+        res.redirect('/description');
     }
-    else if (recordType == "incident") {
+});
+
+router.get('/description', function (req, res){
+   res.render('description/index', {
+       "recordType": req.session.recordType
+   });
+});
+
+router.get('/level-of-harm', function (req, res) {
+    var recordType = req.session.recordType;
+
+    if (recordType == "incident") {
         res.redirect('/level-of-harm/incident');
     } else {
         res.redirect('/level-of-harm/outcome');
     }
 });
 
-router.get('/level-of-harm', function (req, res) {
+router.post('/level-of-harm', function (req, res) {
     var recordType = req.session.recordType;
 
     if (recordType == "incident") {
@@ -59,7 +71,6 @@ router.post('/service-area', function (req, res) {
 });
 
 router.post('/category', function (req, res) {
-    console.log(req.session.journey);
     res.render('category/index', {
         "categories": taxonomy.categories,
         "recordType": req.session.recordType,
@@ -112,20 +123,29 @@ router.post('/selected-subcategory', function (req, res) {
             }
         }
     );
-
-    if (req.session.journey === "A") {
-        res.redirect('/incident-description');
-    }
-    else if (req.session.journey === "B") {
-        if(req.session.selectedSubCategory.type.length > 1){
-            res.redirect('record-type')
-        } else {
-            req.session.recordType = req.session.selectedSubCategory.type[0];
-            res.redirect('/level-of-harm');
-        }
+    if (req.session.recordType === 'incident' && req.session.selectedSubCategory.type === 'outcome'){
+        res.redirect('/suggested-categories')
+    } else {
+        res.redirect('/level-of-harm');
     }
 });
 
+router.get('/suggested-categories', function (req, res) {
+    var linkedCategories = req.session.selectedSubCategory.linkedCategories;
+    var linkedCategoryNames = [];
+    linkedCategories.forEach(function(linkedCategoryId){
+        taxonomy.categories.forEach(function (category){
+            category.subCategories.forEach(function(subCategory){
+                if(subCategory.id === linkedCategoryId){
+                    linkedCategoryNames.push(subCategory.name);
+                }
+            });
+        });
+    });
+    res.render('suggested-categories/index', {
+        'linkedIncidentCategories' : linkedCategoryNames
+    })
+});
 
 router.post('/selected-level-of-harm', function (req, res) {
     if (req.session.journey === "A") {
