@@ -1,0 +1,37 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Details
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/category">Back</a>
+
+            <form class="form" action="/selected-subcategory" method="post">
+
+                <div class="form-group">
+                    <label class="form-label-bold" for="subcategory">Please select a sub-category:</label>
+                    <select class="form-control" id="subcategory" name="subcategory">
+                        {% for subCategory in subCategories %}
+                            {% if (((subCategory.type.indexOf(recordType)) !== -1) or (journey === "B")) %}
+                                <option>{{ subCategory.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}
