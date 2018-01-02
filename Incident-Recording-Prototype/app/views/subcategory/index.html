@@ -14,7 +14,7 @@ Details
             <form class="form" action="/selected-subcategory" method="post">
 
                 <div class="form-group">
-                    <label class="form-label-bold" for="subcategory">Please select a sub-category:</label>
+                    <label class="form-label-bold" for="subcategory">Select a sub-category:</label>
                     <select class="form-control" id="subcategory" name="subcategory">
                         {% for subCategory in subCategories %}
                             {% if ((subCategory.type === recordType) or (journey === "B") or (recordType === "incident")) %}

@@ -65,3 +65,9 @@ $toolkit-font-stack: $helvetica-regular;
 
 #global-header .header-proposition {
   padding-top: 10px!important; }
+
+.alert-default {
+  border-color: $light-blue;
+  background-color: mix(white, $light-blue, 90%);
+}
+
