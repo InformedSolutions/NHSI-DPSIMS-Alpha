@@ -22,7 +22,7 @@ if (!envExists) {
 
 var spawn = require('cross-spawn')
 
-var env = process.env.PATH + "D:\\home\\site\\wwwroot\\node_modules\\.bin";
+var env = process.env.PATH + "D:\\Program Files (x86)\\gulp\\3.9.0.1";
 console.log(env);
 
 process.env['FORCE_COLOR'] = 1
