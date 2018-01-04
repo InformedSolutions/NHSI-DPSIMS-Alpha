@@ -23,7 +23,7 @@ if (!envExists) {
 var spawn = require('cross-spawn')
 
 process.env['FORCE_COLOR'] = 1
-var gulp = spawn('gulp')
+var gulp = spawn('gulp', {env: process.env.PATH + "D:\home\site\wwwroot\node_modules\.bin"})
 gulp.stdout.pipe(process.stdout)
 gulp.stderr.pipe(process.stderr)
 process.stdin.pipe(gulp.stdin)
