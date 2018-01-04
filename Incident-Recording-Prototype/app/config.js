@@ -7,7 +7,7 @@ module.exports = {
   serviceName: 'Record a patient safety incident',
 
   // Default port that prototype runs on
-  port: '80',
+  port: '82',
 
   // Enable or disable password protection on production
   useAuth: 'true',
