@@ -23,8 +23,7 @@ if (!envExists) {
 var spawn = require('cross-spawn')
 
 process.env['FORCE_COLOR'] = 1
-console.log( process.env.PATH );
-var gulp = spawn('gulp')
+var gulp = spawn('gulp', { env: process.env.PATH + 'D:\Program Files (x86)\npm\1.4.28;C:\DWASFiles\Sites\#1psims-incident-recording\AppData\npm;'})
 gulp.stdout.pipe(process.stdout)
 gulp.stderr.pipe(process.stderr)
 process.stdin.pipe(gulp.stdin)
