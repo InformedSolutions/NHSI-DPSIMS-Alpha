@@ -22,7 +22,7 @@ if (!envExists) {
 
 var spawn = require('cross-spawn')
 
-var env = process.env.PATH + "D:\\home\\site\\nwwwroot\\node_modules\\.bin";
+var env = process.env.PATH + "D:\\home\\site\\wwwroot\\node_modules\\.bin";
 console.log(env);
 
 process.env['FORCE_COLOR'] = 1
