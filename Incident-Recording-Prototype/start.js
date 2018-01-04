@@ -1,5 +1,5 @@
 // Check for `node_modules` folder and warn if missing
-require('dotenv').config()
+
 var path = require('path')
 var fs = require('fs')
 
@@ -17,17 +17,17 @@ if (!envExists) {
   fs.createReadStream(path.join(__dirname, '/lib/template.env'))
   .pipe(fs.createWriteStream(path.join(__dirname, '/.env')))
 }
+
 // run gulp
-if(process.env.NODE_ENV === 'development') {
-    var spawn = require('cross-spawn')
+/*
+var spawn = require('cross-spawn')
 
-    process.env['FORCE_COLOR'] = 1
-    var gulp = spawn('gulp')
-    gulp.stdout.pipe(process.stdout)
-    gulp.stderr.pipe(process.stderr)
-    process.stdin.pipe(gulp.stdin)
+process.env['FORCE_COLOR'] = 1
+var gulp = spawn('gulp')
+gulp.stdout.pipe(process.stdout)
+gulp.stderr.pipe(process.stderr)
+process.stdin.pipe(gulp.stdin)
 
-    gulp.on('exit', function (code) {
-        console.log('gulp exited with code ' + code.toString())
-    })
-}
+gulp.on('exit', function (code) {
+  console.log('gulp exited with code ' + code.toString())
+})*/
