@@ -20,10 +20,22 @@ if (!envExists) {
 
 // run gulp
 
+(function() {
+    var childProcess = require("child_process");
+    var oldSpawn = childProcess.spawn;
+    function mySpawn() {
+        console.log('spawn called');
+        console.log(arguments);
+        var result = oldSpawn.apply(this, arguments);
+        return result;
+    }
+    childProcess.spawn = mySpawn;
+})();
+
 var spawn = require('cross-spawn')
 
 process.env['FORCE_COLOR'] = 1
-var gulp = spawn('gulp', { env: process.env.PATH + 'D:\Program Files (x86)\npm\1.4.28;C:\DWASFiles\Sites\#1psims-incident-recording\AppData\npm;'})
+var gulp = spawn('gulp')
 gulp.stdout.pipe(process.stdout)
 gulp.stderr.pipe(process.stderr)
 process.stdin.pipe(gulp.stdin)
