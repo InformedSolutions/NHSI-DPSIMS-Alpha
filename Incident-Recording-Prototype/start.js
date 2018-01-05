@@ -19,7 +19,7 @@ if (!envExists) {
 }
 
 // run gulp
-/*
+
 var spawn = require('cross-spawn')
 
 process.env['FORCE_COLOR'] = 1
@@ -30,4 +30,4 @@ process.stdin.pipe(gulp.stdin)
 
 gulp.on('exit', function (code) {
   console.log('gulp exited with code ' + code.toString())
-})*/
+})
