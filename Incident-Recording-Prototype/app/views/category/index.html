@@ -13,9 +13,16 @@ Details
 
             <form class="form" action="/subcategory" method="post">
                 <div class="form-group">
-                    <label class="form-label-bold" for="category">Categorise the {{ recordType }} from the following choices:</label>
+                    <legend>
+                        <h1 class="heading-medium">
+                            <label for="category">Which category does the {{ recordType }} belong to?</label>
+                        </h1>
+                        <p class="body-text">
+                            Start typing to search for categories
+                        </p>
+                    </legend>
                     <select class="form-control" id="category" name="category">
-
+                        <option value="">Select a category</option>
                         {% for category in categories %}
                             {% if (((category.type.indexOf(recordType)) !== -1) or (journey === "B") or (recordType === "incident")) %}
                                 <option>{{ category.name }}</option>
@@ -29,9 +36,15 @@ Details
                 </div>
 
             </form>
-
         </div>
     </div>
+
+    <script type="text/javascript">
+        accessibleAutocomplete.enhanceSelectElement({
+            defaultValue: '',
+            selectElement: document.querySelector('#category')
+        })
+    </script>
 </main>
 
 {% endblock %}

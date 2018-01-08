@@ -13,20 +13,22 @@ router.get('/', function (req, res) {
 router.post('/selected-journey', function (req, res) {
     if (req.body["button"] === journeyA){
         req.session.journey = "A";
+        res.redirect('/record-type');
     } else if (req.body["button"] === journeyB){
         req.session.journey = "B";
+        res.redirect('/category');
     }
-    res.redirect('incident-recorder/index');
+    //res.redirect('incident-recorder/index');
 });
 
-router.post('/selected-recorder', function (req, res) {
+/*router.post('/selected-recorder', function (req, res) {
     if (req.session.journey === "A") {
         res.redirect('/record-type');
     }
     else if (req.session.journey === "B") {
         res.redirect('/category');
     }
-});
+});*/
 
 router.post('/selected-type', function (req, res) {
     req.session.recordType = req.body["record-type"];
@@ -132,18 +134,18 @@ router.post('/selected-subcategory', function (req, res) {
 
 router.get('/suggested-categories', function (req, res) {
     var linkedCategories = req.session.selectedSubCategory.linkedCategories;
-    var linkedCategoryNames = [];
+    var linkedCategoryDetails = [];
     linkedCategories.forEach(function(linkedCategoryId){
         taxonomy.categories.forEach(function (category){
             category.subCategories.forEach(function(subCategory){
                 if(subCategory.id === linkedCategoryId){
-                    linkedCategoryNames.push(subCategory.name);
+                    linkedCategoryDetails.push(subCategory);
                 }
             });
         });
     });
     res.render('suggested-categories/index', {
-        'linkedIncidentCategories' : linkedCategoryNames
+        'linkedIncidentCategories' : linkedCategoryDetails
     })
 });
 
