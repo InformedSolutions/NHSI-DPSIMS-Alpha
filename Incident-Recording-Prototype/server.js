@@ -274,11 +274,7 @@ console.log('\nGOV.UK Prototype kit v' + releaseVersion)
 // Display warning not to use kit for production services.
 console.log('\nNOTICE: the kit is for building prototypes, do not use it for production services.')
 
-console.log(env);
-console.log(process.env.PORT);
-if (env === 'production'){
-    app.listen(process.env.PORT);
-} else {
+if (env !== 'production'){
     // start the app
     utils.findAvailablePort(app, function (port) {
         console.log('Listening on port ' + port + '   url: http://localhost:' + port)
