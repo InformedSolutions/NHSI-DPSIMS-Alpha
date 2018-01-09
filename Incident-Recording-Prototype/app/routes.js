@@ -72,6 +72,12 @@ router.post('/service-area', function (req, res) {
     })
 });
 
+router.get('/service-area', function (req, res) {
+    res.render('service-area/index', {
+        "serviceAreas": taxonomy.serviceAreas
+    })
+});
+
 router.post('/category', function (req, res) {
     res.render('category/index', {
         "categories": taxonomy.categories,

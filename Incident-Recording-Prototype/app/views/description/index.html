@@ -1,7 +1,7 @@
 {% extends "layout_unbranded.html" %}
 
 {% block page_title %}
-Details
+Description
 {% endblock %}
 
 {% block content %}
@@ -18,6 +18,12 @@ Details
                         <h1 class="heading-medium">
                             <label for="description">Provide a narrative description of the {{ recordType }}:</label>
                         </h1>
+                        <p class="form-hint">
+                            Use this space to describe in your own words what happened. It is important that the information you provide is factual and not simply opinion.
+                        </p>
+                        <p class="form-hint">
+                            Concentrate on the facts and describe the events in the sequence in which they occurred. Please do not include any patient confidential or person identifiable information, for example names or NHS numbers.
+                        </p>
                     </legend>
                     <textarea class="form-control form-control-3-4" name="description" id="description" rows="5"></textarea>
                 </div>
