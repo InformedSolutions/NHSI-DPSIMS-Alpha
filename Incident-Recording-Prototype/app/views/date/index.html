@@ -1,0 +1,178 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Date
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/level-of-harm">Back</a>
+
+            <form class="form" action="/patient" method="post">
+
+                <h1 class="heading-medium">
+                    {% if recordType == "incident" %}
+                    Date of incident
+                    {% elif recordType == "outcome" %}
+                    Date of event
+                    {% endif %}
+                </h1>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>
+                            <h2 class="heading-small">
+                                {% if recordType == "incident" %}
+                                Did the incident occur today?
+                                {% elif recordType == "outcome" %}
+                                Did the event occur today?
+                                {% endif %}
+                            </h2>
+                        </legend>
+
+                        <div class="multiple-choice">
+                            <input id="event-today" type="radio" name="event-today" value="yes">
+                            <label for="event-today">Yes</label>
+                        </div>
+                        <div class="multiple-choice" data-target="known-date-question">
+                            <input id="event-not-today" type="radio" name="event-today" value="no">
+                            <label for="event-not-today">No</label>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+                <div class="panel panel-border-narrow js-hidden" id="known-date-question">
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>
+                                <h2 class="heading-small">
+                                    {% if recordType == "incident" %}
+                                    Do you know the date of the incident?
+                                    {% elif recordType == "outcome" %}
+                                    Do you know the date of the event?
+                                    {% endif %}
+                                </h2>
+                            </legend>
+
+                            <div class="multiple-choice" data-target="date">
+                                <input id="known-date" type="radio" name="known-date" value="yes">
+                                <label for="known-date">Yes</label>
+                            </div>
+                            <div class="multiple-choice" data-target="approx-date">
+                                <input id="unknown-date" type="radio" name="known-date" value="no">
+                                <label for="unknown-date">No</label>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="panel panel-border-narrow js-hidden" id="date">
+                    <fieldset class="form-group">
+                        <legend>
+                            <h2 class="heading-small">
+                                {% if recordType == "incident" %}
+                                On what day did the incident occur?
+                                {% elif recordType == "outcome" %}
+                                On what day did the event occur?
+                                {% endif %}
+                            </h2>
+                            <p class="body-text">
+                                For example, 20 11 2017
+                            </p>
+                        </legend>
+
+                        <div class="form-date">
+
+                            <div class="form-group form-group-day">
+                                <label for="incident-day">Day</label>
+                                <input class="form-control" id="incident-day" name="incident-day" type="number" pattern="[0-9]*" min="0" max="31">
+                            </div>
+
+                            <div class="form-group form-group-month">
+                                <label for="incident-month">Month</label>
+                                <input class="form-control" id="incident-month" name="incident-month" type="number" pattern="[0-9]*" min="0" max="12">
+                            </div>
+
+                            <div class="form-group form-group-year">
+                                <label for="incident-year">Year</label>
+                                <input class="form-control" id="incident-year" name="incident-year" type="number" pattern="[0-9]*">
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="panel panel-border-narrow js-hidden" id="approx-date">
+                    <fieldset class="form-group">
+                        <legend>
+                            <h2 class="heading-small">
+                                Please provide an approximate date:
+                            </h2>
+                            <p class="body-text">
+                                For example, 20 11 2017
+                            </p>
+                        </legend>
+
+                        <div class="form-date">
+
+                            <div class="form-group form-group-day">
+                                <label for="incident-approx-day">Day</label>
+                                <input class="form-control" id="incident-approx-day" name="incident-approx-day" type="number" pattern="[0-9]*" min="0" max="31">
+                            </div>
+
+                            <div class="form-group form-group-month">
+                                <label for="incident-approx-month">Month</label>
+                                <input class="form-control" id="incident-approx-month" name="incident-approx-month" type="number" pattern="[0-9]*" min="0" max="12">
+                            </div>
+
+                            <div class="form-group form-group-year">
+                                <label for="incident-approx-year">Year</label>
+                                <input class="form-control" id="incident-approx-year" name="incident-approx-year" type="number" pattern="[0-9]*">
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!--<fieldset class="form-group">
+                    <legend>
+                        <h1 class="heading-medium">
+                          At what time did it happen?
+                        </h1>
+                        <p class="body-text">
+                            For example, 21 30
+                        </p>
+                    </legend>
+
+                    <div class="form-date">
+
+                        <div class="form-group form-group-day">
+                            <label for="incident-hour">Hour</label>
+                            <input class="form-control" id="incident-hour" name="incident-hour" type="number" pattern="[0-9]*" min="0" max="23">
+                        </div>
+
+                        <div class="form-group form-group-month">
+                            <label for="incident-minute">Minute</label>
+                            <input class="form-control" id="incident-minute" name="incident-minute" type="number" pattern="[0-9]*" min="0" max="59">
+                        </div>
+
+
+                    </div>
+                </fieldset>-->
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

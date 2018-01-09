@@ -15,7 +15,7 @@ Record Type
                     <fieldset>
                         <legend>
                             <h1 class="heading-medium">
-                                What do you want to record?
+                                Do you want to record and share:
                             </h1>
                             <p class="form-hint">
                                 Select one
@@ -25,7 +25,13 @@ Record Type
 
                         <div class="multiple-choice">
                             <input id="record-type-1" type="radio" name="record-type" value="incident">
-                            <label for="record-type-1">A patient safety incident (an event) that could have or did lead to patient harm</label>
+                            <label for="record-type-1">
+                                A patient safety incident
+                                <span class="form-hint">
+                                    A patient safety incident can be defined as any unintended or unexpected incident which could have or did lead to harm for one or more patients receiving NHS funded healthcare.
+                                </span>
+                            </label>
+
                         </div>
                         <div class="multiple-choice">
                             <input id="record-type-2" type="radio" name="record-type" value="outcome">
@@ -34,36 +40,12 @@ Record Type
                         <p class="form-block">or</p>
                         <div class="multiple-choice">
                             <input id="record-type-3" type="radio" name="record-type" value="risk">
-                            <label for="record-type-3">A threat to patient safety that could or will happen in future</label>
+                            <label for="record-type-3">A threat to patient safety that could or will happen in the future</label>
                         </div>
 
                     </fieldset>
                 </div>
 
-                <div class="panel panel-border-narrow js-hidden" id="level-of-harm">
-
-                    <div class="form-group">
-                        <fieldset class="inline">
-
-                            <legend>
-                                <h1 class="heading-medium">
-                                    Do you already have a personal user account?
-                                </h1>
-                            </legend>
-
-                            <div class="multiple-choice">
-                                <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
-                                <label for="radio-inline-1">Yes</label>
-                            </div>
-                            <div class="multiple-choice">
-                                <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
-                                <label for="radio-inline-2">No</label>
-                            </div>
-
-                        </fieldset>
-                    </div>
-
-                </div>
 
                 <div class="form-group">
                     <input class="button" type="submit" value="Continue">

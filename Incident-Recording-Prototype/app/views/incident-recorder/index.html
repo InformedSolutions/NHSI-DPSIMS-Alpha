@@ -1,7 +1,7 @@
 {% extends "layout_unbranded.html" %}
 
 {% block page_title %}
-Incident Recorder
+About You
 {% endblock %}
 
 {% block content %}
@@ -15,18 +15,17 @@ Incident Recorder
                     <fieldset>
                         <legend>
                             <h1 class="heading-medium">
-                                Are you recording this incident as:
+                                Are you a:
                             </h1>
                         </legend>
 
                         <div class="multiple-choice">
                             <input id="healthcare-professional" type="radio" name="incident-recorder" value="healthcare professional">
-                            <label for="healthcare-professional">A healthcare professional</label>
+                            <label for="healthcare-professional">Healthcare professional</label>
                         </div>
-                        <p class="form-block">or</p>
                         <div class="multiple-choice">
                             <input id="member-of-public" type="radio" name="incident-recorder" value="member of public">
-                            <label for="member-of-public">A member of the public</label>
+                            <label for="member-of-public">Member of the public</label>
                         </div>
 
                     </fieldset>

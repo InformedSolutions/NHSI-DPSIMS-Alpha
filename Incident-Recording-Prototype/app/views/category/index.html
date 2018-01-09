@@ -11,18 +11,16 @@ Details
         <div class="column-two-thirds">
             <a class="link-back" href="/description">Back</a>
 
-            <form class="form" action="/subcategory" method="post">
+            <form class="form" action="/level-of-harm" method="post">
                 <div class="form-group">
-                    <legend>
-                        <h1 class="heading-medium">
-                            <label for="category">Which category does the {{ recordType }} belong to?</label>
-                        </h1>
-                        <p class="form-hint">
-                            Start typing to search for categories
-                        </p>
-                    </legend>
+                    <h1 class="heading-medium">
+                        <label for="category">Please indicate the nature of the {{ recordType }}:</label>
+                    </h1>
+                    <!--<p class="form-hint">
+                        Start typing to search for categories
+                    </p>-->
                     <select class="form-control" id="category" name="category">
-                        <option value="">Select a category</option>
+                        <!--<option value="">Select a category</option>-->
                         {% for category in categories %}
                             {% if (((category.type.indexOf(recordType)) !== -1) or (journey === "B") or (recordType === "incident")) %}
                                 <option>{{ category.name }}</option>
@@ -39,12 +37,12 @@ Details
         </div>
     </div>
 
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         accessibleAutocomplete.enhanceSelectElement({
             defaultValue: '',
             selectElement: document.querySelector('#category')
         })
-    </script>
+    </script>-->
 </main>
 
 {% endblock %}
