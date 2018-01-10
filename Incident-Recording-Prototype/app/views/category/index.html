@@ -11,7 +11,7 @@ Details
         <div class="column-two-thirds">
             <a class="link-back" href="/description">Back</a>
 
-            <form class="form" action="/level-of-harm" method="post">
+            <form class="form" action="/never-event" method="post">
                 <div class="form-group">
                     <h1 class="heading-medium">
                         <label for="category">Please indicate the nature of the {{ recordType }}:</label>
@@ -22,9 +22,7 @@ Details
                     <select class="form-control" id="category" name="category">
                         <!--<option value="">Select a category</option>-->
                         {% for category in categories %}
-                            {% if (((category.type.indexOf(recordType)) !== -1) or (journey === "B") or (recordType === "incident")) %}
                                 <option>{{ category.name }}</option>
-                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>
