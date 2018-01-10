@@ -1,8 +1,8 @@
 var express = require('express')
 var router = express.Router()
 var taxonomy = require ('./taxonomy.js');
-const journeyA = "Journey A - Select record type first";
-const journeyB = "Journey B - Select category first";
+const journeyA = "Journey A - Healthcare Professional";
+const journeyB = "Journey B - Member of the Public";
 
 // Route index page
 router.get('/', function (req, res) {
@@ -16,16 +16,7 @@ router.post('/selected-journey', function (req, res) {
     } else if (req.body["button"] === journeyB){
         req.session.journey = "B";
     }
-    res.redirect('incident-recorder/index');
-});
-
-router.post('/selected-recorder', function (req, res) {
-    if (req.session.journey === "A") {
-        res.redirect('/record-type');
-    }
-    else if (req.session.journey === "B") {
-        res.redirect('/category');
-    }
+    res.redirect('record-type/index');
 });
 
 router.post('/selected-type', function (req, res) {
@@ -163,15 +154,6 @@ router.get('/suggested-categories', function (req, res) {
     res.render('suggested-categories/index', {
         'linkedIncidentCategories' : linkedCategoryDetails
     })
-});
-
-router.post('/selected-level-of-harm', function (req, res) {
-    if (req.session.journey === "A") {
-        res.redirect('/category');
-    }
-    else if (req.session.journey === "B") {
-        res.redirect('/incident-description')
-    }
 });
 
 
