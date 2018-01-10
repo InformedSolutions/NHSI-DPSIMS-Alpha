@@ -11,17 +11,39 @@ Patient Details
         <div class="column-two-thirds">
             <a class="link-back" href="/date">Back</a>
 
-            <form class="form" action="/location" method="post">
+            <form class="form" action="/patient/gender" method="post">
 
                 <h1 class="heading-medium">
                     Patient Details
                 </h1>
 
                 <div class="form-group">
+                    <fieldset class="inline">
+
+                        <legend>
+                            <h2 class="bold-small">
+                                Do you know the patient's date of birth?
+                            </h2>
+                        </legend>
+
+                        <div class="multiple-choice" data-target="patient-dob-group">
+                            <input id="dob-known-1" type="radio" name="dob-known-group" value="Yes">
+                            <label for="dob-known-1">Yes</label>
+                        </div>
+                        <div class="multiple-choice" data-target="is-baby">
+                            <input id="dob-known-2" type="radio" name="dob-known-group" value="No">
+                            <label for="dob-known-2">No</label>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+
+                <div class="form-group js-hidden" id="patient-dob-group">
                     <fieldset>
                         <legend>
-                            <h2 class="heading-small">
-                                What is the date of birth of the patient?
+                            <h2 class="bold-small">
+                                What is the patient's date of birth?
                             </h2>
                         </legend>
                     </fieldset>
@@ -41,51 +63,94 @@ Patient Details
                             <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*">
                         </div>
                     </div>
-                    <div class="multiple-choice" data-target="age" style="margin-top: 10px">
-                        <input id="unknown-dob" type="checkbox" name="unknown-dob" value="unknown">
-                        <label for="unknown-dob">Unknown</label>
-                    </div>
                 </div>
 
-                <div class="panel panel-border-narrow js-hidden" id="age">
-                    <div class="form-group">
-                        <label for="patient-age" class="form-label-bold">What age was the patient at the time of the incident?</label>
-                        <input class="form-control" id="patient-age" name="patient-age" type="number" pattern="[0-9]*" min="0">
-                    </div>
-                </div>
+                <div class="form-group js-hidden" id="is-baby">
+                    <fieldset class="inline">
 
-                <div class="form-group">
-                    <fieldset>
                         <legend>
-                            <h2 class="heading-small">
-                                What is the sex of the patient?
+                            <h2 class="bold-small">
+                                Was the patient under 1 month old?
                             </h2>
-                            <p class="form-hint">
-                                Select one
-                            </p>
-
+                            <span class="form-hint">
+                                    At the time of incident
+                                  </span>
                         </legend>
 
-                        <div class="multiple-choice">
-                            <input id="male" type="radio" name="sex" value="male">
-                            <label for="male">
-                                Male
-                            </label>
-
+                        <div class="multiple-choice" data-target="baby-age">
+                            <input id="is-baby-1" type="radio" name="is-baby-group" value="Yes">
+                            <label for="is-baby-1">Yes</label>
                         </div>
-                        <div class="multiple-choice">
-                            <input id="female" type="radio" name="sex" value="female">
-                            <label for="female">Female</label>
-                        </div>
-                        <p class="form-block">or</p>
-                        <div class="multiple-choice">
-                            <input id="other" type="radio" name="sex" value="other/unknown">
-                            <label for="other">Other/Unknown</label>
+                        <div class="multiple-choice" data-target="age">
+                            <input id="is-baby-2" type="radio" name="is-baby-group" value="No">
+                            <label for="is-baby-2">No</label>
                         </div>
 
                     </fieldset>
                 </div>
 
+                <div class="panel panel-border-narrow js-hidden" id="age">
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>
+                                <h2 class="bold-small">
+                                    What was the patient's age?
+                                </h2>
+                                <span class="form-hint">
+                                    Tell us roughly how old the patient was
+                                  </span>
+                            </legend>
+                        </fieldset>
+                        <div class="form-date">
+                            <div class="form-group form-group-year">
+                                <label for="dob-year">Years</label>
+                                <input class="form-control" id="age-year" name="dob-year" type="number" pattern="[0-9]*">
+                            </div>
+
+                            <div class="form-group form-group-month">
+                                <label for="dob-month">Months</label>
+                                <input class="form-control" id="age-month" name="dob-month" type="number" pattern="[0-9]*" min="0" max="1">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-border-narrow js-hidden" id="baby-age">
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>
+                                <h2 class="bold-small">
+                                    What was the patient's age?
+                                </h2>
+                                <span class="form-hint">
+                                    Tell us roughly how old the patient was
+                                  </span>
+                            </legend>
+
+
+                        <div class="form-date form-group">
+                            <div class="form-group form-group-year">
+                                <label for="dob-year">Weeks</label>
+                                <input class="form-control" id="age-weeks" name="dob-year" type="number" pattern="[0-9]*" max="3">
+                            </div>
+                        </div>
+
+                        <details>
+                            <summary role="button" aria-controls="details-content-0" aria-expanded="true"><span class="summary">How do I calculate the patient's age?</span></summary>
+                            <div class="panel-border-narrow panel" id="details-content-0">
+                                Please use the following for a guide: <br>
+                                <br/>
+                                0 weeks = 0 days to 6 days <br/>
+                                1 week = 7 days to 13 days <br/>
+                                2 weeks = 14 days to 20 days <br/>
+                                3 weeks = 21 days to 27 days <br/>
+                            </div>
+                        </details>
+
+                        </fieldset>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <input class="button" type="submit" value="Continue">
