@@ -73,7 +73,7 @@ var taxonomy =
             },
             {
                 'id': "consent",
-                'name': "Consent, commuinication, confidentiality"
+                'name': "Consent, communication, confidentiality"
             },
             {
                 'id': "clinical-assessment",
