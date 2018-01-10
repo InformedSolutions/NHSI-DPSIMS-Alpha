@@ -88,17 +88,17 @@ router.get('/service-area', function (req, res) {
     })
 });
 
-router.post('/category', function (req, res) {
-    res.render('category/index', {
-        "categories": taxonomy.categories,
+router.post('/theme', function (req, res) {
+    res.render('theme/index', {
+        "themes": taxonomy.themes,
         "recordType": req.session.recordType,
         "journey" : req.session.journey
     })
 });
 
-router.get('/category', function (req, res) {
-    res.render('category/index', {
-        "categories": taxonomy.categories,
+router.get('/theme', function (req, res) {
+    res.render('theme/index', {
+        "themes": taxonomy.themes,
         "recordType": req.session.recordType,
         "journey" : req.session.journey
     })

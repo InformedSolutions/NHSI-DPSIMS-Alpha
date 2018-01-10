@@ -1,7 +1,7 @@
 {% extends "layout_unbranded.html" %}
 
 {% block page_title %}
-Details
+Theme
 {% endblock %}
 
 {% block content %}
@@ -14,15 +14,12 @@ Details
             <form class="form" action="/never-event" method="post">
                 <div class="form-group">
                     <h1 class="heading-medium">
-                        <label for="category">Please indicate the nature of the {{ recordType }}:</label>
+                        <label for="theme">Please indicate the theme(s) of the {{ recordType }}:</label>
                     </h1>
-                    <!--<p class="form-hint">
-                        Start typing to search for categories
-                    </p>-->
-                    <select class="form-control" id="category" name="category">
-                        <!--<option value="">Select a category</option>-->
-                        {% for category in categories %}
-                                <option>{{ category.name }}</option>
+                    <select class="form-control" id="theme" name="theme">
+                        <!--<option value="">Select a theme</option>-->
+                        {% for theme in themes %}
+                                <option>{{ theme.name }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -38,7 +35,7 @@ Details
     <!--<script type="text/javascript">
         accessibleAutocomplete.enhanceSelectElement({
             defaultValue: '',
-            selectElement: document.querySelector('#category')
+            selectElement: document.querySelector('#theme')
         })
     </script>-->
 </main>
