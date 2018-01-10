@@ -1,0 +1,46 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Details
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/description">Back</a>
+
+            <form class="form" action="/never-event" method="post">
+                <div class="form-group">
+                    <h1 class="heading-medium">
+                        <label for="category">Please indicate the nature of the {{ recordType }}:</label>
+                    </h1>
+                    <!--<p class="form-hint">
+                        Start typing to search for categories
+                    </p>-->
+                    <select class="form-control" id="category" name="category">
+                        <!--<option value="">Select a category</option>-->
+                        {% for category in categories %}
+                                <option>{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!--<script type="text/javascript">
+        accessibleAutocomplete.enhanceSelectElement({
+            defaultValue: '',
+            selectElement: document.querySelector('#category')
+        })
+    </script>-->
+</main>
+
+{% endblock %}

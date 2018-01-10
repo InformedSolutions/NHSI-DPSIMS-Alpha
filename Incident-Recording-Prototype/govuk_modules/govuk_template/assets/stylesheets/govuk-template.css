@@ -263,10 +263,10 @@ button:focus {
   clear: both; }
 
 #global-header {
-  background-color: #0072C6;
+  background-color: #0b0c0c;
   width: 100%; }
   #global-header .header-wrapper {
-    background-color: #0072C6;
+    background-color: #0b0c0c;
     max-width: 990px;
     margin: 0 auto;
     padding-top: 8px;
@@ -306,13 +306,13 @@ button:focus {
     overflow: visible;
     color: white;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 30px;
     line-height: 1;
     text-decoration: none;
     text-rendering: optimizeLegibility;
     border-bottom: 1px solid transparent;
-    background: url(images/nhs-logo.png?0.22.3) no-repeat;
-    background-size: 70px 32px;
+    background: url(images/gov.uk_logotype_crown.png?0.22.3) no-repeat;
+    background-size: 36px 32px;
     background-position: 0 0; }
     #global-header #logo img {
       margin: 2px 1px 0 0;

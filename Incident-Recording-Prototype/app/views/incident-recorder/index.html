@@ -1,0 +1,44 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+About You
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/index">Back</a>
+            <form class="form" action="/selected-recorder" method="post">
+                <div class="form-group">
+                    <fieldset>
+                        <legend>
+                            <h1 class="heading-medium">
+                                Are you a:
+                            </h1>
+                        </legend>
+
+                        <div class="multiple-choice">
+                            <input id="healthcare-professional" type="radio" name="incident-recorder" value="healthcare professional">
+                            <label for="healthcare-professional">Healthcare professional</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="member-of-public" type="radio" name="incident-recorder" value="member of public">
+                            <label for="member-of-public">Member of the public</label>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

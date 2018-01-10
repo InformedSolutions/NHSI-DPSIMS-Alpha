@@ -1,0 +1,51 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Service Area
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/level-of-harm">Back</a>
+
+            <form class="form" action="/incident-time" method="post">
+
+                <div class="form-group">
+                    <fieldset>
+
+                        <legend>
+                            <h1 class="heading-medium">
+                                In which service area did the incident occur?
+                            </h1>
+                            <p class="body-text">
+                                Select one
+                            </p>
+                        </legend>
+
+                        {% for serviceArea in serviceAreas %}
+                            {% if (loop.index == (serviceAreas.length)) %}
+                                <p class="form-block">or</p>
+                            {% endif %}
+                            <div class="multiple-choice">
+                                <input id="{{ serviceArea.id }}" type="radio" name="service-area" value="{{ serviceArea.id }}">
+                                <label for="{{ serviceArea.id }}">{{ serviceArea.name }}</label>
+                            </div>
+                        {% endfor %}
+
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

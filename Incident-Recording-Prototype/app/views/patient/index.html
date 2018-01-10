@@ -1,0 +1,100 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Patient Details
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/date">Back</a>
+
+            <form class="form" action="/location" method="post">
+
+                <h1 class="heading-medium">
+                    Patient Details
+                </h1>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>
+                            <h2 class="heading-small">
+                                What is the date of birth of the patient?
+                            </h2>
+                        </legend>
+                    </fieldset>
+                    <div class="form-date">
+                        <div class="form-group form-group-day">
+                            <label for="dob-day">Day</label>
+                            <input class="form-control" id="dob-day" name="dob-day" type="number" pattern="[0-9]*" min="0" max="31">
+                        </div>
+
+                        <div class="form-group form-group-month">
+                            <label for="dob-month">Month</label>
+                            <input class="form-control" id="dob-month" name="dob-month" type="number" pattern="[0-9]*" min="0" max="12">
+                        </div>
+
+                        <div class="form-group form-group-year">
+                            <label for="dob-year">Year</label>
+                            <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*">
+                        </div>
+                    </div>
+                    <div class="multiple-choice" data-target="age" style="margin-top: 10px">
+                        <input id="unknown-dob" type="checkbox" name="unknown-dob" value="unknown">
+                        <label for="unknown-dob">Unknown</label>
+                    </div>
+                </div>
+
+                <div class="panel panel-border-narrow js-hidden" id="age">
+                    <div class="form-group">
+                        <label for="patient-age" class="form-label-bold">What age was the patient at the time of the incident?</label>
+                        <input class="form-control" id="patient-age" name="patient-age" type="number" pattern="[0-9]*" min="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>
+                            <h2 class="heading-small">
+                                What is the sex of the patient?
+                            </h2>
+                            <p class="form-hint">
+                                Select one
+                            </p>
+
+                        </legend>
+
+                        <div class="multiple-choice">
+                            <input id="male" type="radio" name="sex" value="male">
+                            <label for="male">
+                                Male
+                            </label>
+
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="female" type="radio" name="sex" value="female">
+                            <label for="female">Female</label>
+                        </div>
+                        <p class="form-block">or</p>
+                        <div class="multiple-choice">
+                            <input id="other" type="radio" name="sex" value="other/unknown">
+                            <label for="other">Other/Unknown</label>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Location
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/patient">Back</a>
+
+            <form class="form" action="/check-your-answers" method="post">
+
+                <h1 class="heading-medium">
+                    Location Details
+                </h1>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>
+                            <h2 class="heading-small">
+                                Did the incident happen in your organisation?
+                            </h2>
+                        </legend>
+
+                        <div class="multiple-choice">
+                            <input id="recorder-location-yes" type="radio" name="recorder-location" value="yes">
+                            <label for="recorder-location-yes">Yes</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="recorder-location-no" type="radio" name="recorder-location" value="no">
+                            <label for="recorder-location-no">No</label>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label-bold" for="location">
+                        Please select the location within your organisation:
+                    </label>
+                    <textarea class="form-control form-control-3-4" name="location" id="location" rows="5"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

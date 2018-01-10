@@ -1,63 +1,179 @@
 var express = require('express')
 var router = express.Router()
+var taxonomy = require ('./taxonomy.js');
+const journeyA = "Journey A - Select record type first";
+const journeyB = "Journey B - Select category first";
 
 // Route index page
 router.get('/', function (req, res) {
-  res.render('index')
+    req.session.destroy();
+    res.render('index')
 });
 
-router.post('/mds1', function (req, res) {
-    res.render('record-type/index');
-});
-
-router.get('/mds1', function (req, res) {
-    res.render('record-type/index');
-});
-
-router.post('/mds2', function (req, res) {
-    var recordType = req.body["record-type"];
-    req.session.recordType = recordType;
-
-    if (recordType == 'Risk') {
-        res.render('risk/index');
+router.post('/selected-journey', function (req, res) {
+    if (req.body["button"] === journeyA){
+        req.session.journey = "A";
+    } else if (req.body["button"] === journeyB){
+        req.session.journey = "B";
     }
-    else if (recordType == "PSI") {
-        res.render('level-of-harm/incident');
+    res.redirect('incident-recorder/index');
+});
+
+router.post('/selected-recorder', function (req, res) {
+    if (req.session.journey === "A") {
+        res.redirect('/record-type');
+    }
+    else if (req.session.journey === "B") {
+        res.redirect('/category');
+    }
+});
+
+router.post('/selected-type', function (req, res) {
+    req.session.recordType = req.body["record-type"];
+
+    if (req.session.recordType == 'risk') {
+        res.redirect('/risk-details');
     } else {
-        res.render('level-of-harm/outcome');
+        res.redirect('/description');
     }
 });
 
-router.get('/mds2', function (req, res) {
+router.get('/description', function (req, res){
+   res.render('description/index', {
+       "recordType": req.session.recordType
+   });
+});
+
+router.get('/level-of-harm', function (req, res) {
     var recordType = req.session.recordType;
 
-    if (recordType == 'Risk') {
-        res.render('risk/index');
-    }
-    else if (recordType == "PSI") {
-        res.render('level-of-harm/incident');
+    if (recordType == "incident") {
+        res.redirect('/level-of-harm/incident');
     } else {
-        res.render('level-of-harm/outcome');
+        res.redirect('/level-of-harm/outcome');
     }
 });
 
-router.post('/mds3', function (req, res) {
-    res.render('details/index');
-});
-
-router.get('/mds3', function (req, res) {
+router.post('/level-of-harm', function (req, res) {
     var recordType = req.session.recordType;
 
-    if (recordType == 'Risk') {
-        res.render('risk/index');
-    }
-     else {
-        res.render('details/index');
+    if (recordType == "incident") {
+        res.redirect('/level-of-harm/incident');
+    } else {
+        res.redirect('/level-of-harm/outcome');
     }
 });
 
-router.post('/check-your-answers', function (req, res) {
-    res.render('check-your-answers/index');
+router.post('/date', function (req, res){
+    res.render('date/index', {
+        "recordType": req.session.recordType
+    });
 });
+
+router.get('/date', function (req, res){
+    res.render('date/index', {
+        "recordType": req.session.recordType
+    });
+});
+
+router.post('/service-area', function (req, res) {
+    res.render('service-area/index', {
+        "serviceAreas": taxonomy.serviceAreas
+    })
+});
+
+router.get('/service-area', function (req, res) {
+    res.render('service-area/index', {
+        "serviceAreas": taxonomy.serviceAreas
+    })
+});
+
+router.post('/category', function (req, res) {
+    res.render('category/index', {
+        "categories": taxonomy.categories,
+        "recordType": req.session.recordType,
+        "journey" : req.session.journey
+    })
+});
+
+router.get('/category', function (req, res) {
+    res.render('category/index', {
+        "categories": taxonomy.categories,
+        "recordType": req.session.recordType,
+        "journey" : req.session.journey
+    })
+});
+
+router.post('/subcategory', function (req, res) {
+    var selectedCategory = req.body["category"];
+    var subCategories = [];
+    taxonomy.categories.forEach(
+        function(category){
+            if (category.name === selectedCategory){
+                req.session.selectedCategory = category;
+                subCategories = category.subCategories;
+            }
+        }
+    );
+    res.render('subcategory/index', {
+        "subCategories": subCategories,
+        "recordType": req.session.recordType,
+        "journey" : req.session.journey
+    })
+});
+
+router.get('/subcategory', function (req, res) {
+    var selectedCategory = req.session.selectedCategory;
+    var subCategories = selectedCategory.subCategories;
+    res.render('subcategory/index', {
+        "subCategories": subCategories,
+        "recordType": req.session.recordType,
+        "journey" : req.session.journey
+    })
+});
+
+router.post('/selected-subcategory', function (req, res) {
+    var selectedSubCategory = req.body["subcategory"];
+    req.session.selectedCategory.subCategories.forEach(
+        function(subCategory){
+            if (subCategory.name === selectedSubCategory){
+                req.session.selectedSubCategory = subCategory;
+            }
+        }
+    );
+    if (req.session.recordType === 'incident' && req.session.selectedSubCategory.type === 'outcome'){
+        res.redirect('/suggested-categories')
+    } else {
+        res.redirect('/level-of-harm');
+    }
+});
+
+router.get('/suggested-categories', function (req, res) {
+    var linkedCategories = req.session.selectedSubCategory.linkedCategories;
+    var linkedCategoryDetails = [];
+    linkedCategories.forEach(function(linkedCategoryId){
+        taxonomy.categories.forEach(function (category){
+            category.subCategories.forEach(function(subCategory){
+                if(subCategory.id === linkedCategoryId){
+                    linkedCategoryDetails.push(subCategory);
+                }
+            });
+        });
+    });
+    res.render('suggested-categories/index', {
+        'linkedIncidentCategories' : linkedCategoryDetails
+    })
+});
+
+router.post('/selected-level-of-harm', function (req, res) {
+    if (req.session.journey === "A") {
+        res.redirect('/category');
+    }
+    else if (req.session.journey === "B") {
+        res.redirect('/incident-description')
+    }
+});
+
+
 
 module.exports = router;

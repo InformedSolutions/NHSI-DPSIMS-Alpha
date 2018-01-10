@@ -1,0 +1,52 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Suggested Category
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/subcategory">Back</a>
+
+            <form class="form" action="/level-of-harm" method="post">
+
+                <div class="panel panel-border-wide alert-default">
+                    You selected an outcome on the previous page.
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>
+                            <h1 class="heading-medium">
+                                What type of incident led to this outcome?
+                            </h1>
+                            <p class="body-text">
+                                Select one
+                            </p>
+
+                        </legend>
+
+                        {% for linkedIncidentCategory in linkedIncidentCategories %}
+                            <div class="multiple-choice">
+                                <input id="{{ linkedIncidentCategory.id }}" type="radio" name="record-type" value="linked-category">
+                                <label for="{{ linkedIncidentCategory.id }}">{{ linkedIncidentCategory.name }}</label>
+                            </div>
+                        {% endfor %}
+
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}
