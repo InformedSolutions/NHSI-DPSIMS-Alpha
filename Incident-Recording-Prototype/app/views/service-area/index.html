@@ -53,10 +53,12 @@ Service Area
             });
 
             $("#service-area").change(function () {
+                $('#sub-service-area')
+                    .find('option')
+                    .remove();
                 $.ajax({
                     url: "/get-sub-service-area/" + $(this).val()
                 }).done(function (data) {
-                    $('#sub-service-area').innerHTML();
                     $.each(data, function (index, subArea) {
                         $('#sub-service-area').append($("<option>", {"text": subArea}))
                     });
