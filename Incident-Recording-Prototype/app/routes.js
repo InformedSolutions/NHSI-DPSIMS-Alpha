@@ -156,6 +156,9 @@ router.get('/suggested-categories', function (req, res) {
     })
 });
 
-
+router.get('/get-sub-service-area/:query', function(req, res) {
+   var serviceArea = req.params.query;
+   res.json(taxonomy.subServiceAreas[serviceArea]);
+});
 
 module.exports = router;
