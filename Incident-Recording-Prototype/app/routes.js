@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var taxonomy = require ('./taxonomy.js');
+var validator = require('validator');
 const journeyA = "Journey A - Healthcare Professional";
 const journeyB = "Journey B - Member of the Public";
 
@@ -99,6 +100,19 @@ router.get('/never-event', function (req, res) {
     res.render('never-event/index', {
         "recordType": req.session.recordType
     });
+});
+
+router.post('/never-event', function (req, res) {
+    var isNeverEvent = req.body['never-event'];
+    var neverEventType = req.body['never-event-type-select'];
+
+    if(isNeverEvent) {
+        res.redirect('/level-of-harm');
+    } else {
+        res.render('never-event/index', {
+            err: 'Please indicate if this was a Never Event'
+        })
+    }
 });
 
 router.post('/subcategory', function (req, res) {

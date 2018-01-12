@@ -17,14 +17,37 @@ Never Event
                 <a class="link-back" href="/description">Back</a>
             {% endif %}
 
-            <form class="form" action="/level-of-harm" method="post">
+            {%if (err) %}
+            <div class="error-summary" id="error-details" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
+                <h2 class="heading-medium error-summary-heading" id="error-summary-heading">
+                    Please check the form
+                </h2>
+                <div id="all-errors">
+                    <ul class="error-summary-list nopadding">
+                        {% if (err)  %}
+                        <li><a href="#was-never-event-group">{{ err }}</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+            <form class="form" action="/never-event" method="post">
 
 
-                <div class="form-group">
+                <div class="form-group {% if (err) %} error {% endif %}" id="was-never-event-group">
+
                     <fieldset class="inline">
                         <legend>
                             <h1 class="heading-medium">
                                 Was this a Never Event?
+                                <div class="{% if (err) %} show {%  else  %}hide{% endif %}">
+                               <span class="error-message">
+                                    {% if (err) %}
+                                    {{ err }}
+                                    {% endif %}
+                               </span>
+                                </div>
                             </h1>
                         </legend>
 
@@ -44,7 +67,7 @@ Never Event
 
                         <div class="form-group">
                             <label for="never-event-type-select" class="form-label-bold">What type of Never Event was it?</label>
-                            <select id="never-event-type-select" class="form-control form-control-3-4" placeholder="Please select">
+                            <select id="never-event-type-select" name="never-event-type-select" class="form-control form-control-3-4" placeholder="Please select">
                                 <option value="" disabled selected>Please select from the list</option>
                                 <option>Wrong site surgery</option>
                                 <option>Wrong implant/prosthesis</option>
