@@ -1,7 +1,6 @@
 var express = require('express')
 var router = express.Router()
 var taxonomy = require ('./taxonomy.js');
-var validator = require('validator');
 const journeyA = "Journey A - Healthcare Professional";
 const journeyB = "Journey B - Member of the Public";
 
