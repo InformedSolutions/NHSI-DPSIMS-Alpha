@@ -9,16 +9,22 @@ Never Event
 <main id="content" role="main">
     <div class="grid-row">
         <div class="column-two-thirds">
-            <a class="link-back" href="/theme">Back</a>
+
+            {% if recordType != "outcome" %}
+                <p>{{recordType}}</p>
+                <a class="link-back" href="/theme">Back</a>
+            {% else %}
+                <a class="link-back" href="/description">Back</a>
+            {% endif %}
 
             <form class="form" action="/level-of-harm" method="post">
 
 
                 <div class="form-group">
-                    <fieldset>
+                    <fieldset class="inline">
                         <legend>
                             <h1 class="heading-medium">
-                                Was this a never event?
+                                Was this a Never Event?
                             </h1>
                         </legend>
 
@@ -37,40 +43,27 @@ Never Event
                 <div class="panel panel-border-narrow js-hidden" id="never-event-type">
 
                         <div class="form-group">
+                            <label for="never-event-type-select" class="form-label-bold">What type of Never Event was it?</label>
+                            <select id="never-event-type-select" class="form-control form-control-3-4" placeholder="Please select">
+                                <option value="" disabled selected>Please select from the list</option>
+                                <option>Wrong site surgery</option>
+                                <option>Wrong implant/prosthesis</option>
+                                <option>Retained foreign object post-procedure</option>
+                                <option>Mis-selection of a strong potassium containing solution</option>
+                                <option>Administration of medication by the wrong route</option>
+                                <option>Overdose of insulin due to abbreviations or incorrect device</option>
+                                <option>Overdose of methotrexate for non-cancer treatment</option>
+                                <option>Mis-selection of high strength midazolam during conscious sedation</option>
+                                <option>Failure to install functional collapsible shower or curtain rails</option>
+                                <option>Falls from poorly restricted windows</option>
+                                <option>Chest or neck entrapment in bed rails</option>
+                                <option>Transfusion or transplantation of ABO-incompatible blood components or organs</option>
+                                <option>Misplaced naso- or oro-gastric tubes</option>
+                                <option>Scalding of patients</option>
+                                <option>Unintentional connection of a patient requiring oxygen to an air flowmeter</option>
+                                <option>Undetected oesophageal intubation</option>
 
-                            <fieldset>
-                                <legend>
-                                    <h1 class="heading-medium">
-                                        Please select the type of never event that occurred:
-                                    </h1>
-                                    <p class="form-hint">
-                                        Select one
-                                    </p>
-
-                                </legend>
-
-                                <div class="multiple-choice">
-                                    <input id="never-event-type-1" type="radio" name="never-event-type" value="wrong-site">
-                                    <label for="never-event-type-1">
-                                        Wrong site surgery
-                                    </label>
-                                </div>
-                                <div class="multiple-choice">
-                                    <input id="never-event-type-2" type="radio" name="never-event-type" value="wrong-implant">
-                                    <label for="never-event-type-2">Wrong implant/prosthesis</label>
-                                </div>
-                                <div class="multiple-choice">
-                                    <input id="never-event-type-3" type="radio" name="never-event-type" value="foreign-object">
-                                    <label for="never-event-type-3">Retained foreign object post-procedure</label>
-                                </div>
-                                <p class="form-block">or</p>
-                                <div class="multiple-choice">
-                                    <input id="never-event-type-4" type="radio" name="never-event-type" value="potassium">
-                                    <label for="never-event-type-4">Mis-selection of a strong potassium containing solution</label>
-                                </div>
-
-                            </fieldset>
-
+                            </select>
                         </div>
                 </div>
 

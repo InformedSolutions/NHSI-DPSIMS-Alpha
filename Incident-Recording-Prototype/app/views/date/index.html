@@ -22,7 +22,7 @@ Date of the incident
                 </h1>
 
                 <div class="form-group">
-                    <fieldset>
+                    <fieldset class="inline">
                         <legend>
                             <h2 class="bold-small">
                                 {% if recordType == "incident" %}
@@ -69,71 +69,73 @@ Date of the incident
 
                         </fieldset>
                     </div>
+
+                    <div class="panel panel-border-narrow js-hidden" id="date">
+                        <fieldset class="form-group">
+                            <legend class="js-hidden">
+                                <h2>
+                                    {% if recordType == "incident" %}
+                                    On what date did the incident occur?
+                                    {% elif recordType == "outcome" %}
+                                    On what date did the event occur?
+                                    {% endif %}
+                                </h2>
+
+                            </legend>
+
+                            <div class="form-date">
+                                <p class="form-hint">
+                                    For example, 20 11 2017
+                                </p>
+                                <div class="form-group form-group-day">
+                                    <label for="incident-day">Day</label>
+                                    <input class="form-control" id="incident-day" name="incident-day" type="number" pattern="[0-9]*" min="0" max="31">
+                                </div>
+
+                                <div class="form-group form-group-month">
+                                    <label for="incident-month">Month</label>
+                                    <input class="form-control" id="incident-month" name="incident-month" type="number" pattern="[0-9]*" min="0" max="12">
+                                </div>
+
+                                <div class="form-group form-group-year">
+                                    <label for="incident-year">Year</label>
+                                    <input class="form-control" id="incident-year" name="incident-year" type="number" pattern="[0-9]*" min="2000" max="2018">
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="panel panel-border-narrow js-hidden" id="approx-date">
+                        <fieldset class="form-group">
+                            <legend class="js-hidden">
+                                <h2 >
+                                    Provide an approximate date:
+                                </h2>
+
+                            </legend>
+
+                            <div class="form-date">
+                                <p class="form-hint">
+                                    If you're not sure, tell us roughly when you think it happened
+                                </p>
+
+                                <div class="form-group form-group-month">
+                                    <label for="incident-approx-month">Month</label>
+                                    <input class="form-control" id="incident-approx-month" name="incident-approx-month" type="number" pattern="[0-9]*" min="0" max="12">
+                                </div>
+
+                                <div class="form-group form-group-year">
+                                    <label for="incident-approx-year">Year</label>
+                                    <input class="form-control" id="incident-approx-year" name="incident-approx-year" type="number" pattern="[0-9]*" min="2000" max="2018">
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
 
-                <div class="panel panel-border-narrow js-hidden" id="date">
-                    <fieldset class="form-group">
-                        <legend class="js-hidden">
-                            <h2>
-                                {% if recordType == "incident" %}
-                                On what date did the incident occur?
-                                {% elif recordType == "outcome" %}
-                                On what date did the event occur?
-                                {% endif %}
-                            </h2>
 
-                        </legend>
-
-                        <div class="form-date">
-                            <p class="form-hint">
-                                For example, 20 11 2017
-                            </p>
-                            <div class="form-group form-group-day">
-                                <label for="incident-day">Day</label>
-                                <input class="form-control" id="incident-day" name="incident-day" type="number" pattern="[0-9]*" min="0" max="31">
-                            </div>
-
-                            <div class="form-group form-group-month">
-                                <label for="incident-month">Month</label>
-                                <input class="form-control" id="incident-month" name="incident-month" type="number" pattern="[0-9]*" min="0" max="12">
-                            </div>
-
-                            <div class="form-group form-group-year">
-                                <label for="incident-year">Year</label>
-                                <input class="form-control" id="incident-year" name="incident-year" type="number" pattern="[0-9]*">
-                            </div>
-
-                        </div>
-                    </fieldset>
-                </div>
-
-                <div class="panel panel-border-narrow js-hidden" id="approx-date">
-                    <fieldset class="form-group">
-                        <legend class="js-hidden">
-                            <h2 >
-                                Provide an approximate date:
-                            </h2>
-
-                        </legend>
-
-                        <div class="form-date">
-                            <p class="form-hint">
-                                If you're not sure, tell us roughly when you think it happened
-                            </p>
-
-                            <div class="form-group form-group-month">
-                                <label for="incident-approx-month">Month</label>
-                                <input class="form-control" id="incident-approx-month" name="incident-approx-month" type="number" pattern="[0-9]*" min="0" max="12">
-                            </div>
-
-                            <div class="form-group form-group-year">
-                                <label for="incident-approx-year">Year</label>
-                                <input class="form-control" id="incident-approx-year" name="incident-approx-year" type="number" pattern="[0-9]*">
-                            </div>
-
-                        </div>
-                    </fieldset>
-                </div>
 
                 <div class="form-group">
                     <input class="button" type="submit" value="Continue">

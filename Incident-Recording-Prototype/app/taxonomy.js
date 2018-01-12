@@ -262,16 +262,17 @@ var taxonomy =
                 'CHEMICAL PATHOLOGY',
                 'MEDICAL VIROLOGY',
                 'AUDIOLOGY',
-                'DIABETIC EDUCATION SERVICE'
+                'DIABETIC EDUCATION SERVICE',
+                'Other'
             ],
-            'Ambulance Trust': ['Ambulance Trust'],
-            'Community Nursing': ['Community Nursing'],
-            'Care Home': ['Care Home'],
-            'Dental Practice': ['Dental Practice'],
-            'Community Hospital': ['Community Hospital'],
-            'Community Pharmacy': ['Community Pharmacy'],
-            'General Practice': ['General Practice'],
-            'Social Care': ['Social Care'],
+            'Ambulance Trust': ['Ambulance Trust', 'Other'],
+            'Community Nursing': ['Community Nursing', 'Other'],
+            'Care Home': ['Care Home', 'Other'],
+            'Dental Practice': ['Dental Practice', 'Other'],
+            'Community Hospital': ['Community Hospital', 'Other'],
+            'Community Pharmacy': ['Community Pharmacy', 'Other'],
+            'General Practice': ['General Practice', 'Other'],
+            'Social Care': ['Social Care', 'Other'],
             'Screening Service': [
                 'NHS abdominal aortic aneurysm (AAA) programme',
                 'NHS bowel cancer screening (BCSP) programme',
@@ -284,7 +285,7 @@ var taxonomy =
                 'NHS newborn blood spot (NBS) screening programme',
                 'NHS newborn hearing screening programme (NHSP)',
                 'NHS sickle cell and thalassaemia (SCT) screening programme'
-
+                , 'Other'
             ]
         },
         'categories' : [

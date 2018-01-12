@@ -13,17 +13,14 @@ Patient Details
 
             <form class="form" action="/patient/gender" method="post">
 
-                <h1 class="heading-medium">
-                    Patient Details
-                </h1>
 
                 <div class="form-group">
                     <fieldset class="inline">
 
                         <legend>
-                            <h2 class="bold-small">
+                            <h1 class="heading-medium">
                                 Do you know the patient's date of birth?
-                            </h2>
+                            </h1>
                         </legend>
 
                         <div class="multiple-choice" data-target="patient-dob-group">
@@ -42,9 +39,9 @@ Patient Details
                 <div class="form-group js-hidden" id="patient-dob-group">
                     <fieldset>
                         <legend>
-                            <h2 class="bold-small">
+                            <h1 class="heading-medium">
                                 What is the patient's date of birth?
-                            </h2>
+                            </h1>
                         </legend>
                     </fieldset>
                     <div class="form-date">
@@ -60,7 +57,7 @@ Patient Details
 
                         <div class="form-group form-group-year">
                             <label for="dob-year">Year</label>
-                            <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*">
+                            <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*" min="1900" max="2018">
                         </div>
                     </div>
                 </div>
@@ -69,9 +66,9 @@ Patient Details
                     <fieldset class="inline">
 
                         <legend>
-                            <h2 class="bold-small">
+                            <h1 class="heading-medium">
                                 Was the patient under 1 month old?
-                            </h2>
+                            </h1>
                             <span class="form-hint">
                                     At the time of incident
                                   </span>
@@ -93,9 +90,9 @@ Patient Details
                     <div class="form-group">
                         <fieldset>
                             <legend>
-                                <h2 class="bold-small">
+                                <h1 class="heading-medium">
                                     What was the patient's age?
-                                </h2>
+                                </h1>
                                 <span class="form-hint">
                                     Tell us roughly how old the patient was
                                   </span>
@@ -104,12 +101,12 @@ Patient Details
                         <div class="form-date">
                             <div class="form-group form-group-year">
                                 <label for="dob-year">Years</label>
-                                <input class="form-control" id="age-year" name="dob-year" type="number" pattern="[0-9]*">
+                                <input class="form-control" id="age-year" name="dob-year" type="number" pattern="[0-9]*" min="0" max="120">
                             </div>
 
                             <div class="form-group form-group-month">
                                 <label for="dob-month">Months</label>
-                                <input class="form-control" id="age-month" name="dob-month" type="number" pattern="[0-9]*" min="0" max="1">
+                                <input class="form-control" id="age-month" name="dob-month" type="number" pattern="[0-9]*" min="0" max="11">
                             </div>
 
                         </div>
@@ -120,9 +117,9 @@ Patient Details
                     <div class="form-group">
                         <fieldset>
                             <legend>
-                                <h2 class="bold-small">
+                                <h1 class="heading-medium">
                                     What was the patient's age?
-                                </h2>
+                                </h1>
                                 <span class="form-hint">
                                     Tell us roughly how old the patient was
                                   </span>
@@ -132,7 +129,7 @@ Patient Details
                         <div class="form-date form-group">
                             <div class="form-group form-group-year">
                                 <label for="dob-year">Weeks</label>
-                                <input class="form-control" id="age-weeks" name="dob-year" type="number" pattern="[0-9]*" max="3">
+                                <input class="form-control" id="age-weeks" name="dob-year" type="number" pattern="[0-9]*" max="3" min="0">
                             </div>
                         </div>
 

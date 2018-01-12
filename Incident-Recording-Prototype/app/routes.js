@@ -95,6 +95,12 @@ router.get('/theme', function (req, res) {
     })
 });
 
+router.get('/never-event', function (req, res) {
+    res.render('never-event/index', {
+        "recordType": req.session.recordType
+    });
+});
+
 router.post('/subcategory', function (req, res) {
     var selectedCategory = req.body["category"];
     var subCategories = [];
@@ -112,6 +118,12 @@ router.post('/subcategory', function (req, res) {
         "journey" : req.session.journey
     })
 });
+
+router.get('/patient/gender', function (req, res) {
+    res.render('patient/gender', {
+        "recordType": req.session.recordType
+    });
+})
 
 router.get('/subcategory', function (req, res) {
     var selectedCategory = req.session.selectedCategory;

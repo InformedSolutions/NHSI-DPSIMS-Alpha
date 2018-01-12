@@ -11,7 +11,11 @@ Description
         <div class="column-two-thirds">
             <a class="link-back" href="/record-type">Back</a>
 
-            <form class="form" action="/theme" method="post">
+            {% if recordType != "outcome" %}
+                <form class="form" action="/theme" method="post">
+            {% else %}
+                <form class="form" action="/never-event" method="post">
+            {% endif %}
 
                 <div class="form-group">
                     <h1 class="heading-medium">

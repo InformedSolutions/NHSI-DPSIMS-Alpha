@@ -11,7 +11,11 @@ Patient Details
         <div class="column-two-thirds">
             <a class="link-back" href="/patient/index">Back</a>
 
-            <form class="form" action="/location" method="post">
+            {% if recordType != "outcome" %}
+                <form class="form" action="/service-area" method="post">
+            {% else %}
+                <form class="form" action="/check-your-answers" method="post">
+            {% endif %}
 
                 <div class="form-group">
                     <fieldset>

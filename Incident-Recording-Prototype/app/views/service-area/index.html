@@ -9,9 +9,9 @@ Service Area
 <main id="content" role="main">
     <div class="grid-row">
         <div class="column-two-thirds">
-            <a class="link-back" href="/level-of-harm">Back</a>
+            <a class="link-back" href="/patient/gender">Back</a>
 
-            <form class="form" action="/incident-time" method="post">
+            <form class="form" action="/check-your-answers" method="post">
                 <div class="form-group">
                     <h1 class="heading-medium">In which service area did the incident occur?
                         <span class="form-hint">Select one</span>
@@ -59,6 +59,8 @@ Service Area
                 $.ajax({
                     url: "/get-sub-service-area/" + $(this).val()
                 }).done(function (data) {
+
+                    $('#sub-service-area').html('');
                     $.each(data, function (index, subArea) {
                         $('#sub-service-area').append($("<option>", {"text": subArea}))
                     });
