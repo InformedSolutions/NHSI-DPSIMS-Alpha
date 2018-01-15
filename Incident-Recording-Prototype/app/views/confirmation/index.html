@@ -1,0 +1,45 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Description
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            <div class="govuk-box-highlight">
+                <h1 class="heading-large">
+                    Thank you for recording your incident
+                </h1>
+                <p class="font-medium">
+                    Your reference number is <br>
+                    <strong class="bold">HDJ2123F</strong>
+                </p>
+            </div>
+
+            <p>
+                The details you entered have been successfully saved.
+            </p>
+
+            <h2 class="heading-medium">What happens next</h2>
+            <p>We've sent your details to NHS Improvement for review.</p>
+            <p>They may contact you to ask for more information.</p>
+            <p>They will review your submission and publish actions or points for national learning based on your report.</p>
+            <p>You can use your reference number to check on the status of this review.</p>
+            <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>
+
+            <h2 class="heading-medium">More about next steps</h2>
+            <ul class="list-bullet">
+                <li><a href="#">Check the status of your incident</a></li>
+                <li><a href="#">Look at solutions to similar incidents</a></li>
+            </ul>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
