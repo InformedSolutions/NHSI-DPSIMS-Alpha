@@ -101,7 +101,8 @@ router.get('/never-event', function (req, res) {
     });
 });
 
-router.post('/is-never-event', function (req, res) {
+
+router.post('/selected-never-event', function (req, res) {
     var isNeverEvent = req.body['never-event'];
     var neverEventType = req.body['never-event-type-select'];
 
