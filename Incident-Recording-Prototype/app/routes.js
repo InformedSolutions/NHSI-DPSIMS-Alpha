@@ -101,7 +101,7 @@ router.get('/never-event', function (req, res) {
     });
 });
 
-router.post('/never-event', function (req, res) {
+router.post('/is-never-event', function (req, res) {
     var isNeverEvent = req.body['never-event'];
     var neverEventType = req.body['never-event-type-select'];
 
@@ -109,6 +109,7 @@ router.post('/never-event', function (req, res) {
         res.redirect('/level-of-harm');
     } else {
         res.render('never-event/index', {
+            recordType: req.session.recordType,
             err: 'Please indicate if this was a Never Event'
         })
     }
