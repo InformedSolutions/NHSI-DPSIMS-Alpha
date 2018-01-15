@@ -191,7 +191,7 @@ router.get('/get-sub-service-area/:query', function(req, res) {
 
 router.get('/check-your-answers', function (req, res) {
    res.render('check-your-answers/index', {
-       recordType: req.session.recordType.toLowerCase().replace(/\b(\w)/g,function(t) {return t.toUpperCase()})
+       recordType: (req.session.recordType || "Incident").toLowerCase().replace(/\b(\w)/g,function(t) {return t.toUpperCase()})
    });
 });
 
