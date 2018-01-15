@@ -4,11 +4,7 @@ var Service = require('node-windows').Service;
 var svc = new Service({
     name:'Incident Recording Prototype',
     description: 'Prototype created for Alpha phase of the NHSI DPSIMS project.',
-    script: 'start.js',
-    nodeOptions: [
-        '--harmony',
-        '--max_old_space_size=4096'
-    ]
+    script: 'server.js'
 });
 
 // Listen for the "install" event, which indicates the
