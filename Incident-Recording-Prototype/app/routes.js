@@ -103,6 +103,7 @@ router.get('/never-event', function (req, res) {
 
 
 router.post('/selected-never-event', function (req, res) {
+
     var isNeverEvent = req.body['never-event'];
     var neverEventType = req.body['never-event-type-select'];
 
@@ -186,6 +187,12 @@ router.get('/suggested-categories', function (req, res) {
 router.get('/get-sub-service-area/:query', function(req, res) {
    var serviceArea = req.params.query;
    res.json(taxonomy.subServiceAreas[serviceArea]);
+});
+
+router.get('/check-your-answers', function (req, res) {
+   res.render('check-your-answers/index', {
+       recordType: req.session.recordType.toLowerCase().replace(/\b(\w)/g,function(t) {return t.toUpperCase()})
+   });
 });
 
 module.exports = router;

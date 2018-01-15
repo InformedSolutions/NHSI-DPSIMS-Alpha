@@ -8,17 +8,17 @@ Check your answers
 
 <main id="content" role="main">
     <div class="grid-row">
-        <div class="column-two-thirds">
+        <div class="column-full form-group">
             <!--<a href="/mds3" class="link-back">Back</a>-->
 
             <h1 class="heading-large">
-                Check your answers before submitting your incident
+                Check your answers before submitting your report
             </h1>
 
 
             <!-- only add a heading for a list if there is more than one list -->
             <h2 class="heading-medium">
-                Personal details
+                {{recordType}} details
             </h2>
 
             <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
@@ -26,61 +26,63 @@ Check your answers
             <!--   * `cya-questions-long` for long questions -->
             <!--   * none for single group of q&a -->
             <dl class="govuk-check-your-answers cya-questions-short">
+
+                <!-- Description -->
                 <div>
                     <dt class="cya-question">
-                        Name
+                        Description
                     </dt>
                     <dd class="cya-answer">
-                        Sarah Philips
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt lorem sit amet dui hendrerit dictum a sit amet leo. Quisque lobortis quam nisi, ac facilisis dui efficitur vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur hendrerit feugiat nunc, et malesuada ipsum tristique non. Aliquam erat volutpat. Sed elementum euismod nibh, a blandit ante. Proin semper viverra lacus, ut iaculis diam tempor in.
                     </dd>
                     <dd class="cya-change">
-                        <a href="#">
-                            Change<span class="visually-hidden"> name</span>
+                        <a href="/description">
+                            Change<span class="visually-hidden"> description</span>
                         </a>
                     </dd>
                 </div>
 
+                <!-- Theme -->
                 <div>
                     <dt class="cya-question">
-                        Date of birth
+                        Theme
                     </dt>
                     <dd class="cya-answer">
-                        5 January 1978
+                        Medical device or equipment
                     </dd>
                     <dd class="cya-change">
-                        <a href="#">
-                            Change<span class="visually-hidden"> date of birth</span>
+                        <a href="/theme">
+                            Change<span class="visually-hidden"> description</span>
                         </a>
                     </dd>
                 </div>
 
+                <!-- Is it a Never Event -->
                 <div>
                     <dt class="cya-question">
-                        Home address
+                        Was it a Never Event?
                     </dt>
                     <dd class="cya-answer">
-                        72 Guild Street<br />
-                        London<br />
-                        SE23 6FH
+                        No
                     </dd>
                     <dd class="cya-change">
-                        <a href="#">
-                            Change<span class="visually-hidden"> home address</span>
+                        <a href="/theme">
+                            Change<span class="visually-hidden"> never event details</span>
                         </a>
                     </dd>
                 </div>
 
+                <!-- Date of incident -->
                 <div>
                     <dt class="cya-question">
-                        Contact details
+                        Date of {{recordType.toLowerCase()}}
                     </dt>
                     <dd class="cya-answer">
-                        07700 900457<br />
-                        sarah.phillips@example.com
+                        11 November 2017
                     </dd>
                     <dd class="cya-change">
-                        <a href="#">
-                            Change<span class="visually-hidden"> contact details</span>
+                        <a href="/date">
+                            Change<span class="visually-hidden"> date of the incident</span>
                         </a>
                     </dd>
                 </div>
@@ -88,82 +90,81 @@ Check your answers
 
 
             <h2 class="heading-medium">
-                Report details
+                Patient details
             </h2>
 
+
+            <!-- Did the patient die? -->
             <dl class="govuk-check-your-answers cya-questions-short">
                 <div>
                     <dt class="cya-question">
-                        Previous application number
+                        Did the patient die?
                     </dt>
                     <dd class="cya-answer">
-                        502135326
+                        No
                     </dd>
                     <dd class="cya-change">
-                        <a href="#">
-                            Change<span class="visually-hidden"> previous application number</span>
+                        <a href="/level-of-harm/{{recordType}}">
+                            Change<span class="visually-hidden"> did the patient die</span>
                         </a>
                     </dd>
                 </div>
 
+                <!-- Level of harm -->
                 <div>
                     <dt class="cya-question">
-                        Licence type
+                        Level of harm
                     </dt>
                     <dd class="cya-answer">
-                        For personal use
+                        Moderate
                     </dd>
                     <dd class="cya-change">
-                        <a href="#">
-                            Change<span class="visually-hidden"> licence type</span>
+                        <a href="/level-of-harm/{{recordType}}">
+                            Change<span class="visually-hidden"> level of harm</span>
                         </a>
                     </dd>
                 </div>
 
+
+                <!-- Date of birth or age -->
                 <div>
                     <dt class="cya-question">
-                        Home address
+                        Date of birth or age
                     </dt>
                     <dd class="cya-answer">
-                        72 Guild Street<br />
-                        London<br />
-                        SE23 6FH
+                        18 April 1991
                     </dd>
                     <dd class="cya-change">
-                        <a href="#">
-                            Change<span class="visually-hidden"> home address</span>
+                        <a href="/patient">
+                            Change<span class="visually-hidden"> patient's date of birth or age</span>
                         </a>
                     </dd>
                 </div>
 
+                <!-- Gender -->
                 <div>
                     <dt class="cya-question">
-                        Licence period
+                        Gender
                     </dt>
                     <dd class="cya-answer">
-                        This is a longer paragraph of text provided by the user to provide additional information.<br /><br />
-                        This is a second paragraph of text provided by the user.
+                        Female
                     </dd>
                     <dd class="cya-change">
-                        <a href="#">
-                            Change<span class="visually-hidden"> licence period</span>
+                        <a href="/patient/gender">
+                            Change<span class="visually-hidden"> patient gender</span>
                         </a>
                     </dd>
                 </div>
+
             </dl>
 
-
-            <h2 class="heading-medium">Now send your incident</h2>
-
-            <p class="text">
-                By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.
-            </p>
-
-            <div class="form-group">
-                <a href="confirmation-page" class="button">Accept and send application</a>
-            </div>
-
         </div>
+
+        <div class="form-group column-full">
+            <a href="/confirmation" class="button">Confirm and submit</a>
+        </div>
+
+
     </div>
 </main>
 
