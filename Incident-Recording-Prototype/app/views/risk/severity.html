@@ -1,0 +1,61 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Risk Severity
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/risk/theme">Back</a>
+            <form class="form" action="/risk/location" method="post">
+                <div class="form-group">
+                    <fieldset>
+                        <legend>
+                            <h1 class="heading-large">
+                                Is there an imminent risk of death or severe harm?
+                            </h1>
+                            <p class="form-hint">
+                                Select one
+                            </p>
+
+                        </legend>
+
+                        <div class="multiple-choice">
+                            <input id="risk-severity-1" type="radio" name="risk-severity" value="yes">
+                            <label for="risk-severity-1">
+                                Yes
+                            </label>
+
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="risk-severity-2" type="radio" name="risk-severity" value="maybe">
+                            <label for="risk-severity-2">
+                                Maybe
+                            </label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="risk-severity-3" type="radio" name="risk-severity" value="unlikely">
+                            <label for="risk-severity-3">
+                                Unlikely
+                            </label>
+
+                        </div>
+
+                    </fieldset>
+                </div>
+
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

@@ -23,7 +23,7 @@ router.post('/selected-type', function (req, res) {
     req.session.recordType = req.body["record-type"];
 
     if (req.session.recordType == 'risk') {
-        res.redirect('/risk-details');
+        res.redirect('/risk/description');
     } else {
         res.redirect('/description');
     }
@@ -193,6 +193,42 @@ router.get('/check-your-answers', function (req, res) {
    res.render('check-your-answers/index', {
        recordType: (req.session.recordType || "Incident").toLowerCase().replace(/\b(\w)/g,function(t) {return t.toUpperCase()})
    });
+});
+
+router.post('/risk/theme', function (req, res) {
+    res.render('risk/theme', {
+        "themes": taxonomy.riskThemes,
+    })
+});
+
+router.get('/risk/theme', function (req, res) {
+    res.render('risk/theme', {
+        "themes": taxonomy.riskThemes,
+    })
+});
+
+router.post('/risk/location', function (req, res) {
+    res.render('risk/location', {
+        "serviceAreas": taxonomy.serviceAreas
+    })
+});
+
+router.get('/risk/location', function (req, res) {
+    res.render('risk/location', {
+        "serviceAreas": taxonomy.serviceAreas
+    })
+});
+
+router.post('/confirmation', function (req, res) {
+    res.render('confirmation/index', {
+        recordType:  req.session.recordType
+    });
+});
+
+router.get('/confirmation', function (req, res) {
+    res.render('confirmation/index', {
+        recordType: req.session.recordType
+    });
 });
 
 module.exports = router;

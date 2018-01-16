@@ -1,7 +1,7 @@
 {% extends "layout_unbranded.html" %}
 
 {% block page_title %}
-Service Area
+Risk Questions
 {% endblock %}
 
 {% block content %}
@@ -9,25 +9,25 @@ Service Area
 <main id="content" role="main">
     <div class="grid-row">
         <div class="column-two-thirds">
-            <a class="link-back" href="/patient/gender">Back</a>
+            <a class="link-back" href="/risk/severity">Back</a>
 
-            <form class="form" action="/check-your-answers" method="post">
-                <h1 class="heading-large">Service area</h1>
+            <form class="form" action="/risk/patients" method="post">
+
 
                 <div class="form-group">
-                    <h2 class="heading-medium">In which service area did the incident occur?
-                        <span class="form-hint">Select one</span>
+                    <h2 class="heading-medium">Which service areas are at risk?
+                        <span class="form-hint">Select multiple</span>
                     </h2>
 
-                    <select  class="form-control form-control-3-4 enableChosen" id="service-area" name="service-area">
+                    <select multiple="true" class="form-control form-control-3-4 enableChosen" id="service-area" name="service-area">
                         <option>Select a service area</option>
                         {% for serviceArea in serviceAreas %}
-                            <option>{{serviceArea.name}}</option>
+                        <option>{{serviceArea.name}}</option>
                         {% endfor %}
                     </select>
                 </div>
 
-                <div class="form-group" id="sub-area-question" style="display: none">
+                <!--<div class="form-group" id="sub-area-question" style="display: none">
                     <h2 class="heading-medium">In which sub area did the incident occur?
                         <span class="form-hint">Select one</span>
                     </h2>
@@ -35,7 +35,8 @@ Service Area
                     <select  class="form-control form-control-3-4 enableChosen" id="sub-service-area" name="sub-service-area">
                         <option>Select a sub service area</option>
                     </select>
-                </div>
+                </div>-->
+
 
                 <div class="form-group">
                     <input class="button" type="submit" value="Continue">
@@ -50,14 +51,14 @@ Service Area
         $(document).ready(function(){
             $(".enableChosen").chosen({
                 inherit_select_classes: true,
-                placeholder_text_single: 'Select one',
+                placeholder_text_multiple: 'Select one or more service areas',
                 width: 'none' // this breaks it on purpose so css takes over for responsive design
             });
 
-            $("#service-area").change(function () {
+            /**$("#service-area").change(function () {
                 $('#sub-service-area')
-                    .find('option')
-                    .remove();
+                        .find('option')
+                        .remove();
                 $.ajax({
                     url: "/get-sub-service-area/" + $(this).val()
                 }).done(function (data) {
@@ -75,10 +76,10 @@ Service Area
                     $('#sub-service-area').trigger('chosen:updated');
 
                 })
-            })
+            })*/
         });
-        
-        
+
+
     </script>
 </main>
 

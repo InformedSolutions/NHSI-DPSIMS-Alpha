@@ -3,35 +3,43 @@ var taxonomy =
         'serviceAreas': [
             {
                 "id": "acute",
-                "name": "Acute"
+                "name": "Acute Hospital"
             },
             {
-                "id": "ambulance-trust",
-                "name": "Ambulance Trust"
-            },
-            {
-                "id": "community-nursing",
-                "name": "Community Nursing"
-            },
-            {
-                "id": "care-home",
-                "name": "Care Home"
-            },
-            {
-                "id": "dental-practice",
-                "name": "Dental Practice"
+                "id": "ambulance",
+                "name": "Ambulance"
             },
             {
                 "id": "community-hospital",
                 "name": "Community Hospital"
             },
             {
+                "id": "community-nursing",
+                "name": "Community Nursing"
+            },
+            {
                 "id": "community-pharmacy",
                 "name": "Community Pharmacy"
             },
             {
+                "id": "community-therapy",
+                "name": "Community Therapy"
+            },
+            {
+                "id": "dental-practice",
+                "name": "Dental Practice"
+            },
+            {
                 "id": "general-practice",
                 "name": "General Practice"
+            },
+            {
+                'id': "maternal",
+                'name': "Maternity services (obstetric and midwifery services, including community midwifery)"
+            },
+            {
+                "id": "residential-nursing",
+                "name": "Residential Nursing"
             },
             {
                 "id": "social-care",
@@ -46,62 +54,124 @@ var taxonomy =
                 "name": "Not Known"
             }
         ],
+        'subServiceAreas' : {
+            'Not Known': [],
+            'Acute Hospital': [
+                'Emergency department',
+                'Theatres, including recovery',
+                'Outpatient department',
+                'Adult ITU or HDU',
+                'Paediatric ITU or HDU',
+                'Neonatal intensive care unit/special care baby unit',
+                'Maternity services (except NICU/SCBU)',
+                'Adult medical inpatient services (general or specialist)',
+                'Adult surgical inpatient services (general or specialist)',
+                'Paediatric inpatient services (general or specialist)',
+                'Adult medical treatment or assessment unit (not overnight stay)',
+                'Adult surgical treatment or assessment unit (not overnight stay)',
+                'Paediatric treatment or assessment unit (not overnight stay)',
+                'Diagnostic services',
+                'Therapy services',
+                'Pharmacy services',
+                'Other'
+            ],
+            'Ambulance': [],
+            'Community Nursing': [],
+            'Residential Nursing': [],
+            'Dental Practice': [],
+            'Community Hospital': [],
+            'Community Pharmacy': [],
+            'Community Therapy': [],
+            'General Practice': [],
+            'Social Care': [],
+            'Screening Service': []
+        },
         'themes': [
             {
-                'id': "accident",
-                'name': "Patient Accident"
-            },
-            {
-                'id': "abuse",
-                'name': "Patient abuse"
-            },
-            {
-                'id': "infection",
-                'name': "Infection Control"
-            },
-            {
-                'id': "device",
-                'name': "Medical Device  or equipment"
-            },
-            {
-                'id': "disruptive",
-                'name': "Disruptive Aggressive Behaviour"
-            },
-            {
-                'id': "self-harm",
-                'name': "Self-harming behaviour"
-            },
-            {
-                'id': "consent",
-                'name': "Consent, communication, confidentiality"
+                'id': "access",
+                'name': "Access, admission, transfer, discharge"
             },
             {
                 'id': "clinical-assessment",
                 'name': "Clinical assessment"
             },
             {
-                'id': "infrastructure",
-                'name': "Infrastructure"
+                'id': "consent",
+                'name': "Consent, communication, confidentiality"
+            },
+            {
+                'id': "disruptive",
+                'name': "Disruptive aggressive behaviour"
             },
             {
                 'id': "documentation",
                 'name': "Documentation"
             },
             {
-                'id': "access",
-                'name': "Access, admission, transfer, discharge"
+                'id': "infection",
+                'name': "Infection control"
             },
             {
-                'id': "treatment",
-                'name': "Treatment procedures"
+                'id': "implementation",
+                'name': "Implementation of care and ongoing monitoring/review"
+            },
+            {
+                'id': "infrastructure",
+                'name': "Infrastructure"
+            },
+            {
+                'id': "it",
+                'name': "IT system failure"
+            },
+            {
+                'id': "device",
+                'name': "Medical device or equipment"
             },
             {
                 'id': "medication",
                 'name': "Medication"
             },
             {
-                'id': "implementation",
-                'name': "Implementation of care and ongoing monitoring/review"
+                'id': "abuse",
+                'name': "Patient abuse"
+            },
+            {
+                'id': "accident",
+                'name': "Patient accident"
+            },
+            {
+                'id': "self-harm",
+                'name': "Self-harming behaviour"
+            },
+            {
+                'id': "treatment",
+                'name': "Treatment procedures"
+            },
+            {
+                'id': "other",
+                'name': "Other"
+            }
+        ],
+        'riskThemes' : [
+            {
+                'id': "staffing",
+                'name': "Staffing, workload and capacity of services"
+            },
+            {
+                'id': "devices",
+                'name': "Medical devices, including supply issues"
+            },
+            {
+                'id': "medication",
+                'name': "Medication, including supply issues"
+            },
+            {
+                'id': "clinical-equipment",
+                'name': "Other clinical equipment, including supply issues"
+            },
+            {
+                'id': "buildings",
+                'name': "Healthcare buildings, fixtures and fittings "
             },
             {
                 "id": "it-error",
@@ -109,189 +179,9 @@ var taxonomy =
             },
             {
                 'id': "other",
-                'name': "Other"
+                'name': "Other Risks"
             }
         ],
-        'subServiceAreas' : {
-            'Not Known': [],
-            'Acute': ['GENERAL SURGERY',
-                'UROLOGY',
-                'TRANSPLANTATION SURGERY',
-                'BREAST SURGERY',
-                'COLORECTAL SURGERY',
-                'HEPATOBILIARY & PANCREATIC SURGERY',
-                'UPPER GASTROINTESTINAL SURGERY',
-                'VASCULAR SURGERY',
-                'SPINAL SURGERY SERVICE',
-                'TRAUMA & ORTHOPAEDICS',
-                'ENT',
-                'OPHTHALMOLOGY',
-                'ORAL SURGERY',
-                'RESTORATIVE DENTISTRY',
-                'PAEDIATRIC DENTISTRY',
-                'ORTHODONTICS',
-                'MAXILLO-FACIAL SURGERY',
-                'NEUROSURGERY',
-                'PLASTIC SURGERY',
-                'CARDIOTHORACIC TRANSPLANTATION',
-                'ACCIDENT & EMERGENCY',
-                'PAIN MANAGEMENT',
-                'PAEDIATRIC UROLOGY',
-                'PAEDIATRIC TRANSPLANTATION SURGERY',
-                'BURNS CARE',
-                'CARDIOTHORACIC SURGERY',
-                'PAEDIATRIC SURGERY',
-                'CARDIAC SURGERY',
-                'THORACIC SURGERY',
-                'PAEDIATRIC NEUROSURGERY',
-                'PAEDIATRIC PLASTIC SURGERY',
-                'PAEDIATRIC BURNS CARE',
-                'PAEDIATRIC CARDIAC SURGERY',
-                'PAEDIATRIC THORACIC SURGERY',
-                'PAEDIATRIC GASTROINTESTINAL SURGERY',
-                'PAEDIATRIC TRAUMA AND ORTHOPAEDICS',
-                'PAEDIATRIC EAR NOSE AND THROAT',
-                'PAEDIATRIC OPHTHALMOLOGY',
-                'PAEDIATRIC MAXILLO-FACIAL SURGERY',
-                'PAEDIATRIC CLINICAL HAEMATOLOGY',
-                'PAEDIATRIC AUDIOLOGICAL MEDICINE',
-                'PAEDIATRIC CLINICAL IMMUNOLOGY AND ALLERGY SERVICE',
-                'PAEDIATRIC INFECTIOUS DISEASES',
-                'PAEDIATRIC DERMATOLOGY',
-                'PAEDIATRIC EPILEPSY',
-                'PAEDIATRIC PAIN MANAGEMENT',
-                'PAEDIATRIC INTENSIVE CARE',
-                'PAEDIATRIC GASTROENTEROLOGY',
-                'PAEDIATRIC ENDOCRINOLOGY',
-                'PAEDIATRIC RESPIRATORY MEDICINE',
-                'PAEDIATRIC NEPHROLOGY',
-                'PAEDIATRIC MEDICAL ONCOLOGY',
-                'PAEDIATRIC METABOLIC DISEASE',
-                'PAEDIATRIC RHEUMATOLOGY',
-                'PAEDIATRIC DIABETIC MEDICINE',
-                'PAEDIATRIC CYSTIC FIBROSIS',
-                'PAEDIATRIC INTERVENTIONAL RADIOLOGY',
-                'COMMUNITY PAEDIATRICS',
-                'PAEDIATRIC NEURO-DISABILITY',
-                'ANAESTHETICS',
-                'CRITICAL CARE MEDICINE',
-                'GENERAL MEDICINE',
-                'GASTROENTEROLOGY',
-                'ENDOCRINOLOGY',
-                'CLINICAL HAEMATOLOGY',
-                'CLINICAL PHYSIOLOGY',
-                'CLINICAL PHARMACOLOGY',
-                'HEPATOLOGY',
-                'DIABETIC MEDICINE',
-                'BLOOD AND MARROW TRANSPLANTATION',
-                'HAEMOPHILIA SERVICE',
-                'AUDIOLOGICAL MEDICINE',
-                'CLINICAL GENETICS',
-                'CLINICAL IMMUNOLOGY and ALLERGY SERVICE',
-                'REHABILITATION SERVICE',
-                'PALLIATIVE MEDICINE',
-                'CLINICAL IMMUNOLOGY',
-                'ALLERGY SERVICE',
-                'INTERMEDIATE CARE',
-                'RESPITE CARE',
-                'CARDIOLOGY',
-                'PAEDIATRIC CARDIOLOGY',
-                'CLINICAL MICROBIOLOGY',
-                'SPINAL INJURIES',
-                'ANTICOAGULANT SERVICE',
-                'SPORT AND EXERCISE MEDICINE',
-                'CARDIAC REHABILITATION',
-                'STROKE MEDICINE',
-                'TRANSIENT ISCHAEMIC ATTACK',
-                'ADULT CYSTIC FIBROSIS SERVICE',
-                'COMPLEX SPECIALISED REHABILITATION SERVICE',
-                'SPECIALIST REHABILITATION SERVICE',
-                'LOCAL SPECIALIST REHABILITATION SERVICE',
-                'INFECTIOUS DISEASES',
-                'DERMATOLOGY',
-                'CONGENITAL HEART DISEASE SERVICE',
-                'RESPIRATORY MEDICINE',
-                'RESPIRATORY PHYSIOLOGY',
-                'PROGRAMMED PULMONARY REHABILITATION',
-                'TROPICAL MEDICINE',
-                'GENITOURINARY MEDICINE',
-                'NEPHROLOGY',
-                'MEDICAL ONCOLOGY',
-                'NUCLEAR MEDICINE',
-                'NEUROLOGY',
-                'CLINICAL NEUROPHYSIOLOGY',
-                'RHEUMATOLOGY',
-                'PAEDIATRICS',
-                'PAEDIATRIC NEUROLOGY',
-                'NEONATOLOGY',
-                'WELL BABIES',
-                'GERIATRIC MEDICINE',
-                'DENTAL MEDICINE SPECIALTIES',
-                'MEDICAL OPHTHALMOLOGY',
-                'OBSTETRICS',
-                'GYNAECOLOGY',
-                'GYNAECOLOGICAL ONCOLOGY',
-                'MIDWIFERY SERVICE',
-                'PHYSIOTHERAPY',
-                'OCCUPATIONAL THERAPY',
-                'SPEECH AND LANGUAGE THERAPY',
-                'PODIATRY',
-                'DIETETICS',
-                'ORTHOPTICS',
-                'CLINICAL PSYCHOLOGY',
-                'PROSTHETICS',
-                'ORTHOTICS',
-                'DRAMA THERAPY',
-                'ART THERAPY',
-                'MUSIC THERAPY',
-                'OPTOMETRY',
-                'PODIATRIC SURGERY',
-                'LEARNING DISABILITY',
-                'ADULT MENTAL ILLNESS',
-                'CHILD and ADOLESCENT PSYCHIATRY',
-                'FORENSIC PSYCHIATRY',
-                'PSYCHOTHERAPY',
-                'OLD AGE PSYCHIATRY',
-                'EATING DISORDERS',
-                'ADDICTION SERVICES',
-                'LIAISON PSYCHIATRY',
-                'PSYCHIATRIC INTENSIVE CARE',
-                'PERINATAL PSYCHIATRY',
-                'MENTAL HEALTH RECOVERY AND REHABILITATION SERVICE',
-                'MENTAL HEALTH DUAL DIAGNOSIS SERVICE',
-                'DEMENTIA ASSESSMENT SERVICE',
-                'CLINICAL ONCOLOGY (previously RADIOTHERAPY)',
-                'INTERVENTIONAL RADIOLOGY',
-                'DIAGNOSTIC IMAGING',
-                'CHEMICAL PATHOLOGY',
-                'MEDICAL VIROLOGY',
-                'AUDIOLOGY',
-                'DIABETIC EDUCATION SERVICE',
-                'Other'
-            ],
-            'Ambulance Trust': ['Ambulance Trust', 'Other'],
-            'Community Nursing': ['Community Nursing', 'Other'],
-            'Care Home': ['Care Home', 'Other'],
-            'Dental Practice': ['Dental Practice', 'Other'],
-            'Community Hospital': ['Community Hospital', 'Other'],
-            'Community Pharmacy': ['Community Pharmacy', 'Other'],
-            'General Practice': ['General Practice', 'Other'],
-            'Social Care': ['Social Care', 'Other'],
-            'Screening Service': [
-                'NHS abdominal aortic aneurysm (AAA) programme',
-                'NHS bowel cancer screening (BCSP) programme',
-                'NHS breast screening (BSP) programme',
-                'NHS cervical screening (CSP) programme',
-                'NHS diabetic eye screening (DES) programme',
-                'NHS fetal anomaly screening programme (FASP)',
-                'NHS infectious diseases in pregnancy screening (IDPS) programme',
-                'NHS newborn and infant physical examination (NIPE) screening programme',
-                'NHS newborn blood spot (NBS) screening programme',
-                'NHS newborn hearing screening programme (NHSP)',
-                'NHS sickle cell and thalassaemia (SCT) screening programme'
-                , 'Other'
-            ]
-        },
         'categories' : [
             {
                 'id': "A",

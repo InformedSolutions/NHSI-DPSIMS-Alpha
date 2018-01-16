@@ -9,11 +9,7 @@ Check your answers
 <main id="content" role="main">
     <div class="grid-row">
         <div class="column-full form-group">
-            {% if recordType != "Outcome" %}
-            <a class="link-back" href="/service-area">Back</a>
-            {% else %}
-            <a class="link-back" href="/patient/gender">Back</a>
-            {% endif %}
+            <a class="link-back" href="/risk/patients">Back</a>
 
             <h1 class="heading-large">
                 Check your answers before submitting your report
@@ -22,7 +18,7 @@ Check your answers
 
             <!-- only add a heading for a list if there is more than one list -->
             <h2 class="heading-medium">
-                {{recordType}} details
+                Risk details
             </h2>
 
             <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
@@ -52,110 +48,56 @@ Check your answers
                         Theme
                     </dt>
                     <dd class="cya-answer">
-                        Medical device or equipment, Documentation
+                        Staffing, workload and capacity of services
                     </dd>
                     <dd class="cya-change">
                         <a href="/theme">
-                            Change<span class="visually-hidden"> description</span>
+                            Change<span class="visually-hidden"> theme</span>
                         </a>
                     </dd>
                 </div>
 
-                <!-- Is it a Never Event -->
+                <!-- Severity -->
                 <div>
                     <dt class="cya-question">
-                        Was it a Never Event?
+                        Is there an imminent risk of death or severe harm?
                     </dt>
                     <dd class="cya-answer">
-                        No
+                        Maybe
                     </dd>
                     <dd class="cya-change">
                         <a href="/theme">
-                            Change<span class="visually-hidden"> never event details</span>
+                            Change<span class="visually-hidden"> risk severity</span>
                         </a>
                     </dd>
                 </div>
 
-                <!-- Date of incident -->
+                <!-- Location -->
                 <div>
                     <dt class="cya-question">
-                        Date of {{recordType.toLowerCase()}}
+                        Where does this risk exist?
                     </dt>
                     <dd class="cya-answer">
-                        11 November 2017
+                        Community Nursing
                     </dd>
                     <dd class="cya-change">
-                        <a href="/date">
-                            Change<span class="visually-hidden"> date of the incident</span>
-                        </a>
-                    </dd>
-                </div>
-            </dl>
-
-
-            <h2 class="heading-medium">
-                Patient details
-            </h2>
-
-
-            <!-- Did the patient die? -->
-            <dl class="govuk-check-your-answers cya-questions-short">
-                <div>
-                    <dt class="cya-question">
-                        Did the patient die?
-                    </dt>
-                    <dd class="cya-answer">
-                        No
-                    </dd>
-                    <dd class="cya-change">
-                        <a href="/level-of-harm/{{recordType}}">
-                            Change<span class="visually-hidden"> did the patient die</span>
+                        <a href="/theme">
+                            Change<span class="visually-hidden"> risk location</span>
                         </a>
                     </dd>
                 </div>
 
-                <!-- Level of harm -->
+                <!-- At-risk population -->
                 <div>
                     <dt class="cya-question">
-                        Level of harm
+                        Who is the at-risk population?
                     </dt>
                     <dd class="cya-answer">
-                        Moderate
+                        Nunc tincidunt lorem sit amet dui hendrerit dictum a sit amet leo.
                     </dd>
                     <dd class="cya-change">
-                        <a href="/level-of-harm/{{recordType}}">
-                            Change<span class="visually-hidden"> level of harm</span>
-                        </a>
-                    </dd>
-                </div>
-
-
-                <!-- Date of birth or age -->
-                <div>
-                    <dt class="cya-question">
-                        Date of birth or age
-                    </dt>
-                    <dd class="cya-answer">
-                        18 April 1991
-                    </dd>
-                    <dd class="cya-change">
-                        <a href="/patient">
-                            Change<span class="visually-hidden"> patient's date of birth or age</span>
-                        </a>
-                    </dd>
-                </div>
-
-                <!-- Gender -->
-                <div>
-                    <dt class="cya-question">
-                        Gender
-                    </dt>
-                    <dd class="cya-answer">
-                        Female
-                    </dd>
-                    <dd class="cya-change">
-                        <a href="/patient/gender">
-                            Change<span class="visually-hidden"> patient gender</span>
+                        <a href="/theme">
+                            Change<span class="visually-hidden"> at-risk population</span>
                         </a>
                     </dd>
                 </div>
@@ -165,7 +107,7 @@ Check your answers
         </div>
 
         <div class="form-group column-full">
-            <a href="/confirmation" class="button">Confirm and submit</a>
+            <a href="/risk/confirmation" class="button">Confirm and submit</a>
         </div>
 
 

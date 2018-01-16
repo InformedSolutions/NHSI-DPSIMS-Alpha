@@ -9,23 +9,26 @@ Theme
 <main id="content" role="main">
     <div class="grid-row">
         <div class="column-two-thirds">
-            <a class="link-back" href="/description">Back</a>
+            <a class="link-back" href="/risk/description">Back</a>
 
-            <form class="form" action="/never-event" method="post">
+            <form class="form" action="/risk/severity" method="post">
+
                 <div class="form-group">
-                    <h1 class="heading-large">
-                        <label for="theme">
-                            Theme(s) of the {{ recordType }}
-                            <span class="form-hint">
-                                Select all that apply
-                            </span>
-                        </label>
-                    </h1>
-                    <select multiple="true" class="form-control form-control-3-4 enableChosen" id="theme" name="theme">
+                    <fieldset>
+
+                        <legend>
+                            <h1 class="heading-large">Please indicate the theme(s) of the risk:</h1>
+                            <span class="body-text">Select all that apply</span>
+                        </legend>
+
                         {% for theme in themes %}
-                                <option>{{ theme.name }}</option>
+                        <div class="multiple-choice">
+                            <input id="{{ theme.id }}" name="risk-themes" type="checkbox" value="{{ theme.id }}">
+                            <label for="{{ theme.id }}">{{ theme.name }}</label>
+                        </div>
                         {% endfor %}
-                    </select>
+
+                    </fieldset>
                 </div>
 
                 <div class="form-group">
