@@ -12,14 +12,31 @@ Risk Questions
             <a class="link-back" href="/risk/severity">Back</a>
 
             <form class="form" action="/risk/patients" method="post">
+
+
                 <div class="form-group">
-                    <h1 class="heading-large">
-                        <label for="location">
-                            Where does this risk exist?
-                        </label>
-                    </h1>
-                    <textarea class="form-control form-control-3-4" name="location" id="location" rows="5"></textarea>
+                    <h2 class="heading-medium">Which service areas are at risk?
+                        <span class="form-hint">Select multiple</span>
+                    </h2>
+
+                    <select multiple="true" class="form-control form-control-3-4 enableChosen" id="service-area" name="service-area">
+                        <option>Select a service area</option>
+                        {% for serviceArea in serviceAreas %}
+                        <option>{{serviceArea.name}}</option>
+                        {% endfor %}
+                    </select>
                 </div>
+
+                <!--<div class="form-group" id="sub-area-question" style="display: none">
+                    <h2 class="heading-medium">In which sub area did the incident occur?
+                        <span class="form-hint">Select one</span>
+                    </h2>
+
+                    <select  class="form-control form-control-3-4 enableChosen" id="sub-service-area" name="sub-service-area">
+                        <option>Select a sub service area</option>
+                    </select>
+                </div>-->
+
 
                 <div class="form-group">
                     <input class="button" type="submit" value="Continue">
@@ -29,6 +46,41 @@ Risk Questions
 
         </div>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".enableChosen").chosen({
+                inherit_select_classes: true,
+                placeholder_text_multiple: 'Select one or more service areas',
+                width: 'none' // this breaks it on purpose so css takes over for responsive design
+            });
+
+            /**$("#service-area").change(function () {
+                $('#sub-service-area')
+                        .find('option')
+                        .remove();
+                $.ajax({
+                    url: "/get-sub-service-area/" + $(this).val()
+                }).done(function (data) {
+
+                    $('#sub-service-area').html('');
+                    if (data.length>0){
+                        $.each(data, function (index, subArea) {
+                            $('#sub-service-area').append($("<option>", {"text": subArea}))
+                        });
+                        $('#sub-area-question').show();
+                    } else{
+                        $('#sub-area-question').hide();
+                    }
+
+                    $('#sub-service-area').trigger('chosen:updated');
+
+                })
+            })*/
+        });
+
+
+    </script>
 </main>
 
 {% endblock %}

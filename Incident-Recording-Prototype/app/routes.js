@@ -207,4 +207,16 @@ router.get('/risk/theme', function (req, res) {
     })
 });
 
+router.post('/risk/location', function (req, res) {
+    res.render('risk/location', {
+        "serviceAreas": taxonomy.serviceAreas
+    })
+});
+
+router.get('/risk/location', function (req, res) {
+    res.render('risk/location', {
+        "serviceAreas": taxonomy.serviceAreas
+    })
+});
+
 module.exports = router;
