@@ -174,6 +174,10 @@ var taxonomy =
                 'name': "Healthcare buildings, fixtures and fittings "
             },
             {
+                "id": "it-error",
+                "name": "IT system failure"
+            },
+            {
                 'id': "other",
                 'name': "Other Risks"
             }
