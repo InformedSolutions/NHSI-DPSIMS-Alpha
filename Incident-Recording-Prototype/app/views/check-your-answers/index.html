@@ -9,7 +9,11 @@ Check your answers
 <main id="content" role="main">
     <div class="grid-row">
         <div class="column-full form-group">
+            {% if recordType != "Outcome" %}
             <a class="link-back" href="/service-area">Back</a>
+            {% else %}
+            <a class="link-back" href="/patient/gender">Back</a>
+            {% endif %}
 
             <h1 class="heading-large">
                 Check your answers before submitting your report

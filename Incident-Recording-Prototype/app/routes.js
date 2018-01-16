@@ -219,4 +219,16 @@ router.get('/risk/location', function (req, res) {
     })
 });
 
+router.post('/confirmation', function (req, res) {
+    res.render('confirmation/index', {
+        recordType:  req.session.recordType
+    });
+});
+
+router.get('/confirmation', function (req, res) {
+    res.render('confirmation/index', {
+        recordType: req.session.recordType
+    });
+});
+
 module.exports = router;
