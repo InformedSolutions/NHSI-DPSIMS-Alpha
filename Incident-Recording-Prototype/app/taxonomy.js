@@ -108,6 +108,32 @@ var taxonomy =
                 'name': "Other"
             }
         ],
+        'riskThemes' : [
+            {
+                'id': "staffing",
+                'name': "Staffing, workload and capacity of services"
+            },
+            {
+                'id': "devices",
+                'name': "Medical devices, including supply issues"
+            },
+            {
+                'id': "medication",
+                'name': "Medication, including supply issues"
+            },
+            {
+                'id': "clinical-equipment",
+                'name': "Other clinical equipment, including supply issues"
+            },
+            {
+                'id': "buildings",
+                'name': "Healthcare buildings, fixtures and fittings "
+            },
+            {
+                'id': "other",
+                'name': "Other Risks"
+            }
+        ],
         'subServiceAreas' : {
             'Not Known': [],
             'Acute': ['GENERAL SURGERY',

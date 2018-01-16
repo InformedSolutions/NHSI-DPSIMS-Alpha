@@ -1,0 +1,34 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Risk Questions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/risk/severity">Back</a>
+
+            <form class="form" action="/risk/patients" method="post">
+                <div class="form-group">
+                    <h1 class="heading-medium">
+                        <label for="location">
+                            Where does this risk exist?
+                        </label>
+                    </h1>
+                    <textarea class="form-control form-control-3-4" name="location" id="location" rows="5"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

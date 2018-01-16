@@ -1,0 +1,35 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Risk Questions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <a class="link-back" href="/risk/location">Back</a>
+
+            <form class="form" action="/check-your-answers" method="post">
+                <div class="form-group">
+                    <h1 class="heading-medium">
+                        <label for="risk-population">
+                            Who is the at-risk population?
+                            <span class="form-hint">For example, age, gender, location, disease/diagnosis, treatment type</span>
+                        </label>
+                    </h1>
+                    <textarea class="form-control form-control-3-4" name="risk-population" id="risk-population" rows="5"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}
