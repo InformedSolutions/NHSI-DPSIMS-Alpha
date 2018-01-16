@@ -104,6 +104,10 @@ var taxonomy =
                 'name': "Implementation of care and ongoing monitoring/review"
             },
             {
+                "id": "it-error",
+                "name": "IT system failure"
+            },
+            {
                 'id': "other",
                 'name': "Other"
             }
