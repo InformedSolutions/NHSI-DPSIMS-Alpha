@@ -27,7 +27,7 @@ Service Area
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" id="sub-area-question" style="display: none">
                     <h2 class="heading-medium">In which sub area did the incident occur?
                         <span class="form-hint">Select one</span>
                     </h2>
@@ -63,9 +63,14 @@ Service Area
                 }).done(function (data) {
 
                     $('#sub-service-area').html('');
-                    $.each(data, function (index, subArea) {
-                        $('#sub-service-area').append($("<option>", {"text": subArea}))
-                    });
+                    if (data.length>0){
+                        $.each(data, function (index, subArea) {
+                            $('#sub-service-area').append($("<option>", {"text": subArea}))
+                        });
+                        $('#sub-area-question').show();
+                    } else{
+                        $('#sub-area-question').hide();
+                    }
 
                     $('#sub-service-area').trigger('chosen:updated');
 
