@@ -155,7 +155,7 @@ var taxonomy =
         'riskThemes' : [
             {
                 'id': "staffing",
-                'name': "Staffing, workload and capacity of services"
+                'name': "Staffing, workload, capacity or capability of services"
             },
             {
                 'id': "devices",
@@ -175,7 +175,7 @@ var taxonomy =
             },
             {
                 "id": "it-error",
-                "name": "IT system failure"
+                "name": "Information Technology or transfer of information"
             },
             {
                 'id': "other",
