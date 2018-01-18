@@ -28,23 +28,58 @@ module.exports = {
   useBrowserSync: 'true',
 
     themes: [
-      'Assessment delayed/omitted',
-        'Unheralded cardiac arrest',
-        'Operative incident',
-        'Invasive procedure (not surgery)',
-        'Airway obstruction/ Aspiration pneumonia',
-        'Clinical diagnostic error including delay of diagnosis',
-        'Deterioration not recognised or not acted on',
-        'Fall',
-        'Healthcare associated infection',
-        'Medication incident',
-        'Obstetric-specific incident',
-        'Pressure ulcer grade 4 or above',
-        'Pulmonary embolus  - hospital acquired',
-        'Resuscitation (excluding medication)',
-        'Suicide/severe self harm',
-        'Transfer or discharge incident',
-        'Other or unable to theme'
+        {
+            "id": "acute",
+            "name": "Acute Hospital"
+        },
+        {
+            "id": "ambulance",
+            "name": "Ambulance"
+        },
+        {
+            "id": "community-hospital",
+            "name": "Community Hospital"
+        },
+        {
+            "id": "community-nursing",
+            "name": "Community Nursing"
+        },
+        {
+            "id": "community-pharmacy",
+            "name": "Community Pharmacy"
+        },
+        {
+            "id": "community-therapy",
+            "name": "Community Therapy"
+        },
+        {
+            "id": "dental-practice",
+            "name": "Dental Practice"
+        },
+        {
+            "id": "general-practice",
+            "name": "General Practice"
+        },
+        {
+            'id': "maternal",
+            'name': "Maternity services (obstetric and midwifery services, including community midwifery)"
+        },
+        {
+            "id": "residential-nursing",
+            "name": "Residential Nursing"
+        },
+        {
+            "id": "social-care",
+            "name": "Social Care"
+        },
+        {
+            "id": "screening-service",
+            "name": "Screening Service"
+        },
+        {
+            "id": "not-known",
+            "name": "Not Known"
+        }
     ],
 
     subthemes: [

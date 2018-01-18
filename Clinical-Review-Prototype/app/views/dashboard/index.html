@@ -39,7 +39,7 @@ Dashboard | Clinical Review
 
                         <div class="multiple-choice" data-target="category-filter">
                             <input id="radio-inline-3" type="checkbox" name="radio-inline-group" value="category">
-                            <label for="radio-inline-3">Category</label>
+                            <label for="radio-inline-3">Theme(s)</label>
                         </div>
 
                         <label for="search-box" class="js-hidden">Search</label>
@@ -59,11 +59,11 @@ Dashboard | Clinical Review
                         </div>
 
                         <div class="panel panel-border-narrow js-hidden" id="category-filter">
-                            <label class="form-label" for="categories">Categories</label>
+                            <label class="form-label" for="categories">Theme(s)</label>
                             <select id="categories" class="form-control">
                             {%if  themes %}
                             {% for theme in themes %}
-                            <option value="{{theme}}">{{theme}}</option>
+                            <option value="{{theme.id}}">{{theme.name}}</option>
                             {% endfor %}
                             {% endif %}
                             </select>
@@ -76,7 +76,7 @@ Dashboard | Clinical Review
             <table>
                 <thead>
                 <tr>
-                    <th>#</th>  <th>Description</th> <th>Date Reported</th> <th>Organisation</th>  <th>Category</th> <th>Actions</th> <th></th> <th></th>
+                    <th>#</th>  <th>Description</th> <th>Date Reported</th> <th>Organisation</th>  <th>Theme(s)</th> <th>Actions</th> <th></th> <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -85,7 +85,7 @@ Dashboard | Clinical Review
                 <tr>
                     <td class="incident_id"><a href="#" data-target="incident-190" onclick="javascript:toggleIncidentPanel(this);">190</a></td>
                     <td>Unable to secure night nurse for terminally ill patient. Marie Curie unable to cover for any nights . Patient family are having to carry out [..]</td>
-                    <td>24th November 2017</td> <td>TH164</td> <td>Treatment / procedure - delay / failure</td> <td>-</td> <td></td>
+                    <td>24th November 2017</td> <td>TH164</td> <td>Implementation of care and ongoing monitoring/review</td> <td>-</td> <td></td>
                     <td class="last-column"><a href="/incident/review">Review</a> </td>
                 </tr>
 
@@ -99,39 +99,48 @@ Dashboard | Clinical Review
                             <h4 class="heading-small">Date Occurred</h4>
                             <p>24th November 2017</p>
 
-                            <h4 class="heading-small">Specialty</h4>
-                            <p>Primary care/Community</p>
+                            <h4 class="heading-small">Level of harm</h4>
+                            <p>Severe</p>
 
-                            <h4 class="heading-small">Sub-specialty</h4>
-                            <p>Community nursing</p>
+                            <h4 class="heading-small">Service area</h4>
+                            <p>Community Hospital</p>
 
                             <h4 class="heading-small">Care setting</h4>
                             <p>Community nursing, medical and therapy service (incl. community hospital)</p>
+
+                            <h4 class="heading-small">Was it a Never Event?</h4>
+                            <p>No</p>
+
+                            <h4 class="heading-small">Patient's date of birth</h4>
+                            <p>13th March 1943</p>
+
+                            <h4 class="heading-small">Patient's gender</h4>
+                            <p>Female</p>
                         </div>
                     </td>
                 </tr>
 
                 <!--- ROW 2 -->
                 <tr>
-                    <td><a href="/view-incident?id=189">189</a></td> <td>TBC</td> <td>24th November 2017</td> <td>TH90</td> <td>Suicide/self harm</td> <td>-</td> <td></td>
+                    <td><a href="/view-incident?id=189">189</a></td> <td>TBC</td> <td>24th November 2017</td> <td>TH90</td> <td>Self-harming behaviour</td> <td>-</td> <td></td>
                     <td class="last-column"><a href="#">Review</a> </td>
                 </tr>
 
                 <!--- ROW 3 -->
                 <tr>
-                    <td><a href="/view-incident?id=188">188</a></td> <td>TBC</td> <td>24th November 2017</td>  <td>TR80</td> <td>Eclampsia</td> <td>-</td> <td><p class="task-completed">Updated</p></td>
+                    <td><a href="/view-incident?id=188">188</a></td> <td>TBC</td> <td>24th November 2017</td>  <td>TR80</td> <td>IT system failure</td> <td>-</td> <td><p class="task-completed">Updated</p></td>
                     <td class="last-column"><a href="#">Review</a> </td>
                 </tr>
 
                 <!--- ROW 4 -->
                 <tr>
-                    <td><a href="/view-incident?id=187">187</a></td> <td>TBC</td> <td>23rd November 2017</td> <td>RI200</td> <td>Wrong device / equipment used</td> <td>For VRM</td> <td><p class="task-completed">Reviewed</p> </td>
+                    <td><a href="/view-incident?id=187">187</a></td> <td>TBC</td> <td>23rd November 2017</td> <td>RI200</td> <td>Medical device or equipment</td> <td>For VRM</td> <td><p class="task-completed">Reviewed</p> </td>
                     <td class="last-column"><a href="#">View</a> </td>
                 </tr>
 
                 <!--- ROW 5 -->
                 <tr>
-                    <td><a href="/view-incident?id=186">186</a></td> <td>TBC</td> <td>23rd November 2017</td> <td>KL78</td> <td>Wrong device / equipment used</td> <td>-</td> <td></td>
+                    <td><a href="/view-incident?id=186">186</a></td> <td>TBC</td> <td>23rd November 2017</td> <td>KL78</td> <td>Medication</td> <td>-</td> <td></td>
                     <td class="last-column"><a href="#">Review</a> </td>
                 </tr>
 

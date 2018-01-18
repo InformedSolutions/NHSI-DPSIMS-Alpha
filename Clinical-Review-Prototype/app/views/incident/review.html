@@ -26,7 +26,7 @@ Review incident | Record a patient safety incident
 
                         {%if  themes %}
                         {% for theme in themes %}
-                            <option value="{{theme}}">{{theme}}</option>
+                            <option value="{{theme.id}}">{{theme.name}}</option>
                         {% endfor %}
                         {% else %}
                             <option value="1">Suicide/severe self harm</option>
@@ -35,26 +35,8 @@ Review incident | Record a patient safety incident
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label-bold" for="subtheme">Sub-theme</label>
-                    <select class="form-control form-control-3-4" id="subtheme">
-                        <option value="-1">Please select</option>
-
-                        {%if  subthemes %}
-                        {% for subtheme in subthemes %}
-                        <option value="{{subtheme}}">{{subtheme}}</option>
-                        {% endfor %}
-                        {% else %}
-                        <option value="1">Inpatient on premises</option>
-                        <option value="2">Inpatient off premises</option>
-                        <option value="2">Clearly current community patient</option>
-                        {% endif %}
-                    </select>
-                </div>
-
-
-                <div class="form-group">
                     <label class="form-label-bold" for="notes">Notes</label>
-                    <textarea class="form-control form-control-3-4" id="notes" rows="3"></textarea>
+                    <textarea class="form-control form-control-3-4" id="notes" rows="5"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -92,12 +74,12 @@ Review incident | Record a patient safety incident
                 <tr>
                     <td class="incident_id"><a href="#" data-target="incident-190" onclick="javascript:toggleIncidentPanel(this);">190</a></td>
                     <td>Unable to secure night nurse for terminally ill patient. Marie Curie unable to cover for any nights . Patient family are having to carry out [..]</td>
-                    <td>24th November 2017</td> <td>TH164</td> <td>Treatment/procedure - delay/failure</td> <td>-</td> <td></td>
+                    <td>24th November 2017</td> <td>TH164</td> <td>Implementation of care and ongoing monitoring/review</td> <td>-</td> <td></td>
 
                 </tr>
 
                 <tr class="js-hidden" id="incident-190">
-                    <td colspan="7">
+                    <td colspan="8">
                         <div class="column-full">
                             <h4 class="heading-small">Full description</h4>
                             <p>Unable to secure night nurse for terminally ill patient. Marie Curie unable to cover for any nights . Patient family are having to carry out
@@ -106,14 +88,23 @@ Review incident | Record a patient safety incident
                             <h4 class="heading-small">Date Occurred</h4>
                             <p>24th November 2017</p>
 
-                            <h4 class="heading-small">Specialty</h4>
-                            <p>Primary care/Community</p>
+                            <h4 class="heading-small">Level of harm</h4>
+                            <p>Severe</p>
 
-                            <h4 class="heading-small">Sub-specialty</h4>
-                            <p>Community nursing</p>
+                            <h4 class="heading-small">Service area</h4>
+                            <p>Community Hospital</p>
 
                             <h4 class="heading-small">Care setting</h4>
                             <p>Community nursing, medical and therapy service (incl. community hospital)</p>
+
+                            <h4 class="heading-small">Was it a Never Event?</h4>
+                            <p>No</p>
+
+                            <h4 class="heading-small">Patient's date of birth</h4>
+                            <p>13th March 1943</p>
+
+                            <h4 class="heading-small">Patient's gender</h4>
+                            <p>Female</p>
                         </div>
                     </td>
                 </tr>
