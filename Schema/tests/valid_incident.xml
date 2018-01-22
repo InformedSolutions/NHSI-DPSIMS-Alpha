@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Events>
+	<Event>
+		<Incident>
+			<Line1>Test</Line1>
+			<Line2>Test</Line2>
+		</Incident>
+	</Event>
+	<Event>
+		<Outcome>
+			<Line1>Test</Line1>
+			<Line2>Test</Line2>
+		</Outcome>
+	</Event>
+</Events>

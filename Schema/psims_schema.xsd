@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Events">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Event" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element name="Incident">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Description" type="xs:string" />
+										<xs:element name="Theme" type="xs:string" />
+										<xs:element name="NeverEvent" type="xs:boolean" />
+										<xs:element name="NeverEventType" type="xs:string" />
+										<xs:element name="LevelOfHarm" type="xs:string" />
+										<xs:element name="ExactDate" type="xs:date" />
+										<xs:element name="ApproximateDate" type="xs:gYearMonth" />
+										<xs:element name="DateOfBirth" type="xs:date" />
+										<xs:element name="EstimatedAge" type="EstimatedAgeType" />
+										<xs:element name="EstimatedAgeWeeks" type="EstimatedAgeWeeksType"/>
+										<xs:element name="Gender" type="xs:string"/>
+										<xs:element name="ServiceArea" type="xs:string"/>
+										<xs:element name="ServiceSubArea" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Outcome">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Description" type="xs:string" />
+										<xs:element name="LevelOfHarm" type="xs:string" />
+										<xs:element name="ExactDate" type="xs:date" />
+										<xs:element name="ApproximateDate" type="xs:gYearMonth" />
+										<xs:element name="DateOfBirth" type="xs:date" />
+										<xs:element name="EstimatedAge" type="EstimatedAgeType" />
+										<xs:element name="EstimatedAgeWeeks" type="EstimatedAgeWeeksType"/>
+										<xs:element name="Gender" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Risk">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Description" type="xs:string" />
+										<xs:element name="Theme" type="xs:string" />
+										<xs:element name="Severity" type="xs:string" />
+										<xs:element name="ServiceArea" type="xs:string"/>
+										<xs:element name="Population" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="EstimatedAgeType">
+		<xs:sequence>
+			<xs:element name="Years">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxExclusive value="150"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Months">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxExclusive value="11"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="EstimatedAgeWeeksType">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxExclusive value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
