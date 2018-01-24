@@ -13,13 +13,9 @@
 										<xs:element name="Theme" type="xs:string" />
 										<xs:element name="NeverEvent" type="xs:boolean" />
 										<xs:element name="NeverEventType" type="xs:string" />
-										<xs:element name="LevelOfHarm" type="xs:string" />
-										<xs:element name="ExactDate" type="xs:date" />
-										<xs:element name="ApproximateDate" type="xs:gYearMonth" />
-										<xs:element name="DateOfBirth" type="xs:date" />
-										<xs:element name="EstimatedAge" type="EstimatedAgeType" />
-										<xs:element name="EstimatedAgeWeeks" type="EstimatedAgeWeeksType"/>
-										<xs:element name="Gender" type="xs:string"/>
+										<xs:element name="DegreeOfHarm" type="xs:string" />
+										<xs:element name="IncidentDate" type="DateType" />
+										<xs:element name="Patient" type="PatientType" />
 										<xs:element name="ServiceArea" type="xs:string"/>
 										<xs:element name="ServiceSubArea" type="xs:string"/>
 									</xs:sequence>
@@ -29,13 +25,8 @@
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="Description" type="xs:string" />
-										<xs:element name="LevelOfHarm" type="xs:string" />
-										<xs:element name="ExactDate" type="xs:date" />
-										<xs:element name="ApproximateDate" type="xs:gYearMonth" />
-										<xs:element name="DateOfBirth" type="xs:date" />
-										<xs:element name="EstimatedAge" type="EstimatedAgeType" />
-										<xs:element name="EstimatedAgeWeeks" type="EstimatedAgeWeeksType"/>
-										<xs:element name="Gender" type="xs:string"/>
+										<xs:element name="DegreeOfHarm" type="xs:string" />
+										<xs:element name="OutcomeDate" type="DateType" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -56,30 +47,48 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:complexType name="EstimatedAgeType">
+	<xs:complexType name="DateType">
+		<xs:choice>
+			<xs:element name="ExactDate" type="xs:date" />
+			<xs:element name="ApproximateDate" type="xs:gYearMonth" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="PatientType">
 		<xs:sequence>
-			<xs:element name="Years">
-				<xs:simpleType>
-					<xs:restriction base="xs:integer">
-						<xs:minInclusive value="0"/>
-						<xs:maxExclusive value="150"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="Months">
-				<xs:simpleType>
-					<xs:restriction base="xs:integer">
-						<xs:minInclusive value="0"/>
-						<xs:maxExclusive value="11"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
+			<xs:choice>
+				<xs:element name="DateOfBirth" type="xs:date" />
+				<xs:element name="EstimatedAge">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Years">
+								<xs:simpleType>
+									<xs:restriction base="xs:integer">
+										<xs:minInclusive value="0"/>
+										<xs:maxExclusive value="150"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="Months">
+								<xs:simpleType>
+									<xs:restriction base="xs:integer">
+										<xs:minInclusive value="0"/>
+										<xs:maxExclusive value="11"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="EstimatedAgeWeeks">
+					<xs:simpleType>
+						<xs:restriction base="xs:integer">
+							<xs:minInclusive value="0"/>
+							<xs:maxExclusive value="3"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="Gender" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="EstimatedAgeWeeksType">
-		<xs:restriction base="xs:integer">
-			<xs:minInclusive value="0"/>
-			<xs:maxExclusive value="3"/>
-		</xs:restriction>
-	</xs:simpleType>
 </xs:schema>
