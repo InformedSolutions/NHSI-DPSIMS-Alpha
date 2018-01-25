@@ -1,0 +1,149 @@
+openapi: 3.0.0
+info:
+  title: PSIMS
+  description: An API for recording patient safety incidents.
+  version: 0.0.1
+paths:
+  /incidents:
+    post:
+      summary: Creates a new incident
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema: 
+              $ref: '#/components/schemas/Incidents'
+      responses:
+        '201':
+          description: Confirmation that an incident has been successfully created
+        '400':
+          description: Invalid input
+    get:
+      summary: Lists all incidents accessible to a user recorded in past X days.
+      parameters: 
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of all incidents that have been created in the past X days.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Incidents'
+  /incidents/{id}:
+    get:
+      summary: Gets a specific incident using a known identifier.
+      parameters: 
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Details of a specific incident matching the supplied identifier.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Incidents'
+    put:
+      summary: Updates an existing incident
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Incidents'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Confirmation that an incident has been successfully updated
+        '400':
+          description: Any validation errors that may have been incurred as part of performing a partial update.
+        '404':
+          description: Incident not found
+    delete:
+      summary: Deletes an existing incident
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Incidents'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Confirmation that an incident has been successfully deleted
+        '400':
+          description: Invalid input
+        '404':
+          description: Incident not found
+  /incidents/{ODS}:
+    get:
+      summary: Gets a list of incident for a particular organisation recorded in past X days
+      responses:
+        '200':
+          description: A list of all incidents that have been created in the past X days for a particular organisation.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Incidents'
+components:
+  schemas:
+    Incidents:
+      type: array
+      xml:
+        wrapped: true
+        name: Events
+      items:
+        type: object
+        xml:
+          name: Incident
+        properties:
+          Description:
+            type: string
+          Theme:
+            type: string
+          NeverEventType:
+            type: string
+          DegreeOfHarm:
+            type: string
+          IncidentDate:
+            type: object
+            properties:
+              ExactDate:
+                type: string
+                format: date
+          Patient:
+            type: object
+            properties:
+              DateOfBirth:
+                type: string
+                format: date
+              Gender:
+                type: string
+          ServiceArea:
+            type: string
+          ServiceSubArea:
+            type: string
+        required:
+          - Description
+          - Theme
+          - DegreeOfHarm
+          - IncidentDate
+          - Patient
+          - ServiceArea
+          - ServiceSubArea
