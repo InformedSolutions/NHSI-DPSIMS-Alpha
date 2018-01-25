@@ -6,6 +6,8 @@ info:
 paths:
   /incidents:
     post:
+      tags:
+        - incidents
       summary: Creates a new incident
       requestBody:
         required: true
@@ -19,6 +21,8 @@ paths:
         '400':
           description: Invalid input
     get:
+      tags:
+        - incidents
       summary: Lists all incidents accessible to a user recorded in past X days.
       parameters: 
         - name: status
@@ -35,6 +39,8 @@ paths:
                 $ref: '#/components/schemas/Incidents'
   /incidents/{id}:
     get:
+      tags:
+        - incidents
       summary: Gets a specific incident using a known identifier.
       parameters: 
         - name: id
@@ -50,6 +56,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Incidents'
     put:
+      tags:
+        - incidents
       summary: Updates an existing incident
       requestBody:
         required: true
@@ -71,6 +79,8 @@ paths:
         '404':
           description: Incident not found
     delete:
+      tags:
+        - incidents
       summary: Deletes an existing incident
       requestBody:
         required: true
@@ -93,6 +103,8 @@ paths:
           description: Incident not found
   /incidents/{ODS}:
     get:
+      tags:
+        - incidents
       summary: Gets a list of incident for a particular organisation recorded in past X days
       responses:
         '200':
