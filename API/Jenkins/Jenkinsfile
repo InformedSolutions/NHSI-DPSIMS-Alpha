@@ -1,0 +1,96 @@
+/*
+* As a Maven build, the Maven installer needs to be available to Jenkins as a tool named M3.
+* Jenkins also requires a node available with the label docker (which can be achieved via a loopback).
+*/
+
+stage('Build Spring service from latest source'){
+	node{
+		
+		//Clean workspace before running build
+		deleteDir()
+	
+		//Pull source from GIT
+		git credentialsId: 'git', url: 'https://github.com/InformedSolutions/Informed-Spring-Rest-Microservice-Template'
+		
+		//Check Maven install and package application
+		def mvnHome = tool 'M3'
+		sh "${mvnHome}/bin/mvn package"
+		
+		//Stash source and output jar from build
+		stash includes: 'src/**, target/**.jar, target/surefire-reports/**, **/checkstyle-result.xml, Docker/**', name: 'service-resources'
+	}
+}
+
+stage('Publish jUnit test report'){
+
+	node{
+		unstash 'service-resources'
+		junit 'target/surefire-reports/**.xml'
+	}
+}
+
+stage('Publish code quality reports'){
+
+	//Jenkins JaCoCo plugin (https://wiki.jenkins-ci.org/display/JENKINS/JaCoCo+Plugin) must be installed on Jenkins for this build to run
+	node{		
+		unstash 'service-resources'
+		step([$class: 'JacocoPublisher', exclusionPattern: '**/*Test*.class'])
+	}
+	
+	//Jenkins Checkstyle plugin (https://wiki.jenkins-ci.org/display/JENKINS/Checkstyle+Plugin) must be installed on Jenkins for this build to run
+	node {
+		unstash 'service-resources'
+		def mvnHome = tool 'M3'
+		sh "${mvnHome}/bin/mvn checkstyle:checkstyle"
+		checkstyle canComputeNew: false, canRunOnFailed: true, defaultEncoding: '', healthy: '85', pattern: '**/checkstyle-result.xml', unHealthy: '50'
+	}
+	
+}
+
+stage('Publish Javadoc'){
+
+	//Jenkins Javadoc plugin (https://wiki.jenkins-ci.org/display/JENKINS/Javadoc+Plugin) must be installed on Jenkins for this build to run
+	node {
+		unstash 'service-resources'
+		def mvnHome = tool 'M3'
+		sh "${mvnHome}/bin/mvn javadoc:javadoc"
+		step([$class: 'JavadocArchiver', javadocDir: 'target/site/apidocs', keepAll: true])
+	}
+
+}
+
+stage ('Build and run Spring service docker image'){
+	node('docker && development'){
+		
+		//Clean workspace before running Docker build
+		deleteDir()
+		
+		unstash 'service-resources'
+		
+		//Remove any old spring-rest-micro-service instances
+		sh 'docker stop spring-rest-micro-service || echo \'No running spring-rest-micro-service container to stop\''
+		sh 'docker rm spring-rest-micro-service || echo \'No existing spring-rest-micro-service container to remove\''
+		sh 'docker rmi spring-rest-micro-service || echo \'No existing spring-rest-micro-service image to remove\''
+		
+		sh 'cp target/spring-rest-micro-service*.jar ./Docker/spring-micro-service/'
+		
+		//Switch into spring-rest-micro-service and build docker image for spring service 
+		dir('Docker/spring-micro-service') {
+			//Build new image
+			sh 'docker build -t spring-rest-micro-service .'
+		}
+		
+		//Archive build outputs
+		archiveArtifacts artifacts: 'target/**.jar, **/apidocs/**', fingerprint: true
+		
+		//Launch docker container from built image
+		//sh 'docker run -d --restart=always --name spring-rest-micro-service -p 8088:8080 spring-rest-micro-service'
+
+		/* In a production environment, supply application and log4j configuration using mapped volumes
+		*  To use mapped configurations you will first need to create your /opt/docker/spring-rest-micro-service directory on the deployment environment.
+		*  Once your /opt/docker/spring-rest-micro-service directory has been created, create two folders within this directory named config and logs.
+		*  Both application.properties and log4j2.xml should be placed into the config directory. The logs directory should be left empty (as these are created by the application itself).
+		*/
+		sh 'docker run -d -v /opt/docker/spring-rest-micro-service/logs:/logs -v /opt/docker/spring-rest-micro-service/config:/config --restart=always --name spring-rest-micro-service -p 8100:8080 spring-rest-micro-service'
+	}
+}

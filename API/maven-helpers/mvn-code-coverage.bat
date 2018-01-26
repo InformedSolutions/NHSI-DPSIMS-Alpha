@@ -1,0 +1,1 @@
+mvnw test jacoco:prepare-agent jacoco:report -f ../pom.xml

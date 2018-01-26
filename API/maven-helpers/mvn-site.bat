@@ -1,0 +1,1 @@
+mvnw site -f ../pom.xml
