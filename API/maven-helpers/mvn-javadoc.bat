@@ -1,1 +1,0 @@
-mvnw javadoc:javadoc -f ../pom.xml

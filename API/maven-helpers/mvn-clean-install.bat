@@ -1,1 +1,0 @@
-mvnw clean install -U -f ../pom.xml

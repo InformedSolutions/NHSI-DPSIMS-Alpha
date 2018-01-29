@@ -1,1 +1,0 @@
-mvnw package -f ../pom.xml
