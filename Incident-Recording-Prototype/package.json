@@ -7,7 +7,7 @@
     "node": ">=6.11.1 <7.0"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node env-startup.js",
     "lint": "standard",
     "test": "gulp test && npm run lint"
   },
